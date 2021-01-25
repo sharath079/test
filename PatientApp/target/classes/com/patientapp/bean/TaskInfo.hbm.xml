@@ -1,0 +1,165 @@
+ version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- @author  Srikanth Brahmadevara: Harivara Technology Solutions, CODE GENERATED -->
+<hibernate-mapping>
+	<class name="com.patientapp.bean.TaskInfo" table="TaskInfo">
+		<id name="taskInfoId" type="java.lang.Integer">
+			<column name="taskInfoId" />
+			<generator class="identity" />
+		</id>
+		
+				
+				
+		<property name="taskName" type="java.lang.String">
+			<column name="TaskName" length="500" />
+		</property>
+		
+		<property name="taskDescription" type="java.lang.String">
+			<column name="TaskDescription" length="500" />
+		</property>
+		
+		<property name="taskType" type="java.lang.String">
+			<column name="TaskType" length="20" />
+		</property>
+		
+		<property name="apiName" type="java.lang.String">
+			<column name="ApiName" length="500" />
+		</property>
+		
+		<property name="targetEntityQuery" type="java.lang.String">
+			<column name="TargetEntityQuery" length="100" />
+		</property>
+		
+		<property name="targetUserIdColumnAlias" type="java.lang.String">
+			<column name="TargetUserIdColumnAlias" length="100" />
+		</property>
+		
+		<property name="targetEntityIdColumnAlias" type="java.lang.String">
+			<column name="TargetEntityIdColumnAlias" length="100" />
+		</property>
+		
+		<property name="enableInAppNotification" type="java.lang.String">
+			<column name="EnableInAppNotification" length="20" />
+		</property>
+		
+		<property name="inAppNotificationLayout" type="java.lang.String">
+			<column name="InAppNotificationLayout" length="100" />
+		</property>
+		
+		<property name="enableEmailNotification" type="java.lang.String">
+			<column name="EnableEmailNotification" length="20" />
+		</property>
+		
+		<property name="emailColumnAlias" type="java.lang.String">
+			<column name="EmailColumnAlias" length="100" />
+		</property>
+		
+		<property name="emailNotificationLayout" type="java.lang.String">
+			<column name="EmailNotificationLayout" length="100" />
+		</property>
+		
+		<property name="emailSubject" type="java.lang.String">
+			<column name="EmailSubject" length="500" />
+		</property>
+		
+		<property name="enableSmsNotification" type="java.lang.String">
+			<column name="EnableSmsNotification" length="20" />
+		</property>
+		
+		<property name="smsColumnAlias" type="java.lang.String">
+			<column name="SmsColumnAlias" length="100" />
+		</property>
+		
+		<property name="smsNotificationLayout" type="java.lang.String">
+			<column name="SmsNotificationLayout" length="100" />
+		</property>
+		
+		<property name="sMSText" type="java.lang.String">
+			<column name="SMSText" length="500" />
+		</property>
+		
+		<property name="isActive" type="java.lang.String">
+			<column name="IsActive" length="20" />
+		</property>
+		
+		<property name="taskStartDate" type="date">
+			<column name="TaskStartDate" length="50" />
+		</property>
+		
+		<property name="taskFrequency" type="java.lang.Integer">
+			<column name="TaskFrequency" length="10" />
+		</property>
+		
+		<property name="taskFrequencyUnit" type="java.lang.String">
+			<column name="TaskFrequencyUnit" length="20" />
+		</property>
+		
+		<property name="isRecurring" type="java.lang.String">
+			<column name="IsRecurring" length="20" />
+		</property>
+		
+		<property name="firstRunType" type="java.lang.String">
+			<column name="FirstRunType" length="20" />
+		</property>
+		
+		<property name="dateColumnAlias" type="java.lang.String">
+			<column name="DateColumnAlias" length="100" />
+		</property>
+		
+		<property name="firstRunDateCalculationMethod" type="java.lang.String">
+			<column name="FirstRunDateCalculationMethod" length="20" />
+		</property>
+		
+		<property name="firstRunDateGapInYears" type="java.lang.Integer">
+			<column name="FirstRunDateGapInYears" length="10" />
+		</property>
+		
+		<property name="firstRunDateGapInMonths" type="java.lang.Integer">
+			<column name="FirstRunDateGapInMonths" length="10" />
+		</property>
+		
+		<property name="firstRunDateGapInDays" type="java.lang.Integer">
+			<column name="FirstRunDateGapInDays" length="10" />
+		</property>
+		
+		<property name="firstRunDateGapInHours" type="java.lang.Integer">
+			<column name="FirstRunDateGapInHours" length="10" />
+		</property>
+		
+		<property name="firstRunDateGapInMinutes" type="java.lang.Integer">
+			<column name="FirstRunDateGapInMinutes" length="10" />
+		</property>
+		
+		<property name="firstRunDateGapInSeconds" type="java.lang.Integer">
+			<column name="FirstRunDateGapInSeconds" length="10" />
+		</property>
+
+		<property name="vwLastModifiedDate" type="date">
+			<column name="VwLastModifiedDate" length="10" />
+		</property>
+		<property name="vwLastModifiedTime" type="java.lang.Integer">
+			<column name="VwLastModifiedTime" length="9" />
+		</property>
+		<property name="vwLastAction" type="java.lang.String">
+			<column name="VwLastAction" length="20" />
+		</property>
+		<property name="vwModifiedBy" type="java.lang.String">
+			<column name="VwModifiedBy" length="100" />
+		</property>
+		<property name="vwTxnRemarks" type="java.lang.String">
+			<column name="VwTxnRemarks" length="500" />
+		</property>
+		<property name="vwTxnStatus" type="java.lang.String">
+			<column name="VwTxnStatus" length="25" />
+		</property>
+		<property name="isRequestUnderProcesss"
+			type="java.lang.Integer">
+			<column name="IsRequestUnderProcesss" length="10" />
+		</property>
+		<property name="legacyRecordId"
+			type="java.lang.Integer">
+			<column name="LegacyRecordId" length="10" />
+		</property>
+	</class>	
+</hibernate-mapping>

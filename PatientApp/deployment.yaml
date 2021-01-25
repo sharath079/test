@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patientappapp
+  namespace:   
+  labels:
+    app: patientappapp
+    tier: backend
+    version: v1
+spec:
+  selector:
+    matchLabels:
+      app: patientappapp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: patientappapp
+    spec:
+      containers:
+      - name: patientappapp
+        image: localhost:5000/patientapp
+        ports:
+        - containerPort: 8061

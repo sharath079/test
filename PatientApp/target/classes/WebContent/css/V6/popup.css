@@ -1,0 +1,254 @@
+.overlay .heading-bar{font-size: 20px;}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    overflow: auto;
+    z-index:999999;
+}
+
+.popup {
+    margin:6% auto;
+    padding: 0px;
+    background: #fff;
+    border-radius: 0px;
+    position: relative;
+    /*transition: all 5s ease-in-out;
+    width: 95%;*/
+}
+.popup-heading{    background: #2fa3e6;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    line-height: 30px; color: #fff;
+    font-size: 21px;
+}
+.popup-btmbg{    background: #eee;
+    width: 100%;
+    padding:10px 0px;
+    margin-bottom: 0px;
+    line-height: 30px; color: #fff;
+    font-size: 21px;
+}
+
+
+.popup h2 {
+    margin-top: 0;
+    color: #fff;
+}
+
+.popup .close {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: 100;
+    text-decoration: none;
+    color: #fff !important;opacity: 10 !important;
+}
+
+
+.popup-close {
+    font-size: 30px;
+    font-weight: 100;
+    text-decoration: none;
+    color: #fff; opacity: 10 !important;
+}
+.popup-close:hover,
+.popup-close:focus{
+    color: #ff0000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.popup .close:hover,
+.popup .close:focus{
+    color: #ff0000;
+    text-decoration: none;
+}
+.popup .content {
+    max-height: 30%;
+    overflow: auto; height: auto;
+}
+
+.popup-content{padding: 20px; margin-bottom: 15px; max-height: 300px; overflow-y: scroll}
+/* width */
+.popup-content::-webkit-scrollbar {
+    width: 6px;}
+/* Track */
+.popup-content::-webkit-scrollbar-track {
+    background: #fff; }
+/* Handle */
+.popup-content::-webkit-scrollbar-thumb {
+    background: #ddd; }
+/* Handle on hover */
+.popup-content::-webkit-scrollbar-thumb:hover {
+    background: #ddd; }
+
+.popup-content table th{padding: 0; font-weight: bold}
+.popup-content table tr, .popup-content table td{border: none; padding: 8px 0px}
+.popup-content .form-control1{
+    padding:3px 5px;
+    margin: 0;
+    height: auto;
+    width: 50%;
+    float: right;}
+
+
+.popup-btmbg h4{margin-top: 5px}
+
+/*@media screen and (max-width: 700px){
+    .popup{
+        width: 90% !important;
+    }
+}
+*/
+
+@media (min-width: 992px) {
+    .small-width{
+        width: 450px;
+    }
+    .medium-width{
+        width: 50%;
+    }
+    .medium-large-width{
+        width: 50%;
+    }
+    .large-width{
+        width: 90%;
+    }
+}
+
+@media (max-width: 992px) {
+    .small-width, .medium-width, .large-width, .medium-large-width{
+        width: 70%;
+    }
+}
+
+
+CSS for a temporary message to be shown for a while and which disappears automatically after few seconds
+*/
+
+.transitory-message {
+    margin: 10px auto;
+    padding: 15px;
+    background: #ff0;
+    border-radius: 5px;
+    width: 95%;
+    position: relative;
+    /*transition: all 5s ease-in-out;*/
+}
+
+.overlay-for-message {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.0);
+    transition: opacity 500ms;
+    overflow: scroll;
+}
+
+
+
+
+
+/* css for spinner */
+
+
+.spinner-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.3);
+    transition: opacity 500ms;
+    overflow: auto;
+    z-index: 100;
+}
+
+
+
+.loader {
+    margin: 100px auto;
+    font-size: 8px;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    position: relative;
+    text-indent: -9999em;
+    -webkit-animation: load5 1.1s infinite ease;
+    animation: load5 1.1s infinite ease;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+
+
+}
+@-webkit-keyframes load5 {
+    0%,
+    100% {
+        box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2), 2.5em 0em 0 0em rgba( 255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba( 255, 255, 255, 0.2), 0em 2.5em 0 0em rgba( 255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba( 255, 255, 255, 0.2), -2.6em 0em 0 0em rgba( 255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.7);
+    }
+    12.5% {
+        box-shadow: 0em -2.6em 0em 0em rgba( 255, 255, 255, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba( 255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba( 255, 255, 255, 0.2), 0em 2.5em 0 0em rgba( 255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba( 255, 255, 255, 0.2), -2.6em 0em 0 0em rgba( 255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.5);
+    }
+    25% {
+        box-shadow: 0em -2.6em 0em 0em rgba( 255, 255, 255, 0.5), 1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff, 1.75em 1.75em 0 0em rgba( 255, 255, 255, 0.2), 0em 2.5em 0 0em rgba( 255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba( 255, 255, 255, 0.2), -2.6em 0em 0 0em rgba( 255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2);
+    }
+    37.5% {
+        box-shadow: 0em -2.6em 0em 0em rgba( 255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.5), 2.5em 0em 0 0em rgba( 255, 255, 255, 0.7), 1.75em 1.75em 0 0em rgba( 255, 255, 255, 0.2), 0em 2.5em 0 0em rgba( 255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba( 255, 255, 255, 0.2), -2.6em 0em 0 0em rgba( 255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0em -2.6em 0em 0em rgba( 255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2), 2.5em 0em 0 0em rgba( 255, 255, 255, 0.5), 1.75em 1.75em 0 0em rgba( 255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba( 255, 255, 255, 0.2), -2.6em 0em 0 0em rgba( 255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2);
+    }
+    62.5% {
+        box-shadow: 0em -2.6em 0em 0em rgba( 255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2), 2.5em 0em 0 0em rgba( 255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba( 255, 255, 255, 0.5), 0em 2.5em 0 0em rgba( 255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff, -2.6em 0em 0 0em rgba( 255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2);
+    }
+    75% {
+        box-shadow: 0em -2.6em 0em 0em rgba( 255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2), 2.5em 0em 0 0em rgba( 255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba( 255, 255, 255, 0.2), 0em 2.5em 0 0em rgba( 255, 255, 255, 0.5), -1.8em 1.8em 0 0em rgba( 255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff, -1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2);
+    }
+    87.5% {
+        box-shadow: 0em -2.6em 0em 0em rgba( 255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2), 2.5em 0em 0 0em rgba( 255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba( 255, 255, 255, 0.2), 0em 2.5em 0 0em rgba( 255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba( 255, 255, 255, 0.5), -2.6em 0em 0 0em rgba( 255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+    }
+}
+@keyframes load5 {
+    0%,
+    100% {
+        box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2), 2.5em 0em 0 0em rgba( 255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba( 255, 255, 255, 0.2), 0em 2.5em 0 0em rgba( 255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba( 255, 255, 255, 0.2), -2.6em 0em 0 0em rgba( 255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.7);
+    }
+    12.5% {
+        box-shadow: 0em -2.6em 0em 0em rgba( 255, 255, 255, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba( 255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba( 255, 255, 255, 0.2), 0em 2.5em 0 0em rgba( 255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba( 255, 255, 255, 0.2), -2.6em 0em 0 0em rgba( 255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.5);
+    }
+    25% {
+        box-shadow: 0em -2.6em 0em 0em rgba( 255, 255, 255, 0.5), 1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff, 1.75em 1.75em 0 0em rgba( 255, 255, 255, 0.2), 0em 2.5em 0 0em rgba( 255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba( 255, 255, 255, 0.2), -2.6em 0em 0 0em rgba( 255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2);
+    }
+    37.5% {
+        box-shadow: 0em -2.6em 0em 0em rgba( 255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.5), 2.5em 0em 0 0em rgba( 255, 255, 255, 0.7), 1.75em 1.75em 0 0em rgba( 255, 255, 255, 0.2), 0em 2.5em 0 0em rgba( 255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba( 255, 255, 255, 0.2), -2.6em 0em 0 0em rgba( 255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0em -2.6em 0em 0em rgba( 255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2), 2.5em 0em 0 0em rgba( 255, 255, 255, 0.5), 1.75em 1.75em 0 0em rgba( 255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba( 255, 255, 255, 0.2), -2.6em 0em 0 0em rgba( 255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2);
+    }
+    62.5% {
+        box-shadow: 0em -2.6em 0em 0em rgba( 255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2), 2.5em 0em 0 0em rgba( 255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba( 255, 255, 255, 0.5), 0em 2.5em 0 0em rgba( 255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff, -2.6em 0em 0 0em rgba( 255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2);
+    }
+    75% {
+        box-shadow: 0em -2.6em 0em 0em rgba( 255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2), 2.5em 0em 0 0em rgba( 255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba( 255, 255, 255, 0.2), 0em 2.5em 0 0em rgba( 255, 255, 255, 0.5), -1.8em 1.8em 0 0em rgba( 255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff, -1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2);
+    }
+    87.5% {
+        box-shadow: 0em -2.6em 0em 0em rgba( 255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba( 255, 255, 255, 0.2), 2.5em 0em 0 0em rgba( 255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba( 255, 255, 255, 0.2), 0em 2.5em 0 0em rgba( 255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba( 255, 255, 255, 0.5), -2.6em 0em 0 0em rgba( 255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+    }
+}
+
+
+/* css for spinner ends*/

@@ -1,0 +1,298 @@
+@media (min-width: 768px)
+{    
+    .html-body
+    {
+        overflow:hidden;
+    }
+    
+    .padding30
+    {
+        padding: 30px;
+    }
+    
+    .padding-left25
+    {
+        padding-left: 25px;
+    }
+    
+    .padding-right25
+    {
+        padding-right: 25px;
+    }
+    
+    .padding-left20
+    {
+        padding-left: 20px;
+    }
+    
+    .padding-left0
+    {
+        padding-left: 0px;
+    }
+    
+    .padding-left30
+    {
+        padding-left: 30px;
+    }
+    
+    .padding-right30
+    {
+        padding-right: 30px;
+    }
+    
+    .padding10
+    {
+        padding: 10px;
+    }
+    
+    .margin-top15
+    {
+        margin-top: 15px;
+    }
+    
+    .height-clearance50
+    {
+        height:50px;
+    }
+    
+    .padding-header
+    {
+        padding: 0px 20px;
+    }
+    
+    .body-heading
+    {
+        position:fixed; 
+        left:200px; 
+        top:50px; 
+        height:50px;    
+        right:0px;
+    }
+    
+    .body-content
+    {
+        position:fixed; 
+        left:200px; 
+        top:100px; 
+        bottom:20px; 
+        right:0px;     
+        overflow: auto;
+    }
+}
+
+
+.module-logo1
+{
+    height:150px; 
+    width:150px;
+}
+
+@media (max-width: 768px)
+{
+    
+    .padding0-mobile
+    {
+        padding: 0px;
+    }
+    
+    .margin-top50-mobile
+    {
+        margin-top: 50px;
+    }
+    
+    .padding-left5-mobile
+    {
+        padding-left: 5px;
+    }
+    
+    .padding-right5-mobile
+    {
+        padding-right: 5px;
+    }
+    
+    .hide-mobile
+    {
+        display: none;
+    }
+    
+}
+
+    
+    
+
+.sidebar-menu {
+  width:100%; 
+  overflow: auto; 
+  margin-left:auto; 
+  margin-right: auto; 
+}
+
+@media (min-width: 768px) {
+  .sidebar-menu {
+    width:200px; 
+    overflow: auto; 
+    position: fixed; 
+    margin-top: 0px; 
+    top: 50px; 
+    margin-left:auto; 
+    margin-right: auto; 
+    bottom: 0px; 
+  }
+}
+
+.navbar-inverse {
+  background-color: #4096ee;
+  border-color: #cccccc;
+
+  .navbar-brand { color: #ffffff; }
+  .navbar-brand:hover { color: #ddedfd; }
+
+  .navbar-nav {
+
+    > .open {
+
+      > a,
+      > a:focus,
+      > a:hover { background-color: #a1c4f0; }
+
+    }
+
+    > li {
+
+      > a { color: #fff; }
+      > a:hover { @extend .navbar-brand:hover; }
+
+    }
+
+    .dropdown-menu {
+      padding: 0px;
+      overflow: hidden;
+
+      .navbar-content {
+        width:270px;
+        padding: 15px;
+        padding-bottom:0px;
+      }
+
+      .navbar-content:before,
+      .navbar-content:after {
+        display: table;
+        content: "";
+        line-height: 0;
+      }
+
+      .navbar-footer {
+        background-color: #ddd;
+
+        .navbar-footer-content { padding:15px 15px 15px 15px; }
+
+      }
+
+    }
+
+  }
+
+  .navbar-right > li:last-child { margin-right: 15px; }
+
+}
+
+
+.menuItemLink
+{
+    padding:7px 15px;
+    cursor:pointer;
+}
+
+.menuItemSubMenu
+{
+    padding:7px 15px;
+    cursor:pointer;
+}
+
+.menuItemLink a
+{
+    color:#fff;
+}
+
+.menuItemSubMenu a
+{
+    color:#fff;
+}
+
+.sidebar {
+
+  @media (min-width: 768px) {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 0px 20px 20px;
+    overflow-x: hidden;
+    overflow-y: auto; // Scrollable contents if viewport is shorter than content.
+    background-color: #f5f5f5;
+    border-right: 1px solid #e7e7e7;
+  }
+
+  .client-info {
+    background-color: #cbefff;
+    margin: 0px -20px;
+
+    img {
+      border: 1px solid #a8e1fa;
+      margin: 10px;
+    }
+
+    p {
+      font-weight: bold;
+      color: #555;
+      margin-top: 15px;
+      margin-right: 10px;
+    }
+
+  }
+
+}
+
+.nav-sidebar {
+  margin-right: -21px; // 20px padding + 1px border
+  margin-bottom: 20px;
+  margin-left: -20px;
+  
+  li {
+
+    > a {
+      position: relative;
+      display: block;
+      padding: 10px 20px;
+    }
+
+    > a:focus,
+    > a:hover {
+      text-decoration: none;
+      background-color: #eee;
+    }
+
+  }
+
+  .active {
+
+    > a,
+    > a:hover,
+    > a:focus {
+      color: #fff;
+      background-color: #428bca;
+    }
+
+  }
+
+  .sidebar-header {
+    display: block;
+    background-color: #ddd;
+    padding: 10px 20px;
+    color: #555;
+    font-size: 18px;
+  }
+
+}

@@ -1,0 +1,27 @@
+pipeline {
+    agent none
+    options {
+        skipStagesAfterUnstable()
+    }
+    stages {
+        stage('Build') {
+            agent {
+                docker { 
+		    image 'maven:3-alpine'
+		    args '-v /root/.m2:/root/.m2'
+		}
+            }
+            steps {
+                sh 'mvn -B -DskipTests clean package docker:build'
+            }
+        }
+        stage('TestDocker') {
+            agent any
+            steps {
+                sh 'docker images'
+		sh 'docker tag spring-boot-patientapp/patientapp:latest localhost:5000/patientapp'		
+		sh 'docker push localhost:5000/patientapp'
+            }
+        }
+    }
+}

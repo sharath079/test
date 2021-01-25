@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> Patient App Login</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="/layouts/xacadpro/plugins/fontawesome-free/css/all.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- icheck bootstrap -->
+        <link rel="stylesheet" href="/layouts/xacadpro/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="/layouts/xacadpro/dist/css/adminlte.min.css">
+        <!-- Google Font: Source Sans Pro -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+        <!-- jQuery -->
+        <script src="/layouts/xacadpro/plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="/layouts/xacadpro/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="/layouts/xacadpro/dist/js/adminlte.min.js"></script>
+        <script src="/js/helperutil.js" type="text/javascript"></script>
+	    <script src="/js/commonUtil.js" type="text/javascript"></script>
+        <script src="/js/variablesUtil.js" type="text/javascript"></script>
+		<script src="/js/configPropertiesUtil.js"	type="text/javascript"></script>
+		<script src="/js/LoginSuperUserUtil.js"	type="text/javascript"></script>        
+    </head>
+    <body class="hold-transition login-page" onload="initializeOnLoadForLoginSuperUser()" style="background-image: url('/images/ExportImportAll.gif')">
+        <div class="login-box"  style="width:480px;">
+            <div class="login-logo">
+                <a href="javaScript:void(0)"><b style="color: white;"> Patient App - Corporate Login</b></a>
+            </div>
+            <!-- /.login-logo -->
+            <div class="card">
+                <div class="card-body login-card-body">
+                    <p class="login-box-msg">Sign in to start your session</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" id="employeeName" data-name="employeeName" placeholder="Email">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password"  id="password" data-name="password" class="form-control" placeholder="Password">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8" style="display:none;">
+                                <div class="icheck-primary">
+                                    <input type="checkbox" id="remember">
+                                    <label for="remember">
+                                        Remember Me
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-12">
+                                <button type="button" onclick="userLogin()" class="btn btn-primary btn-block">Sign In</button>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </form>
+                </div>
+                <!-- /.login-card-body -->
+            </div>
+        </div>
+        <!-- /.login-box -->
+		<!-- Modal -->
+		<div class="modal" data-name="loginBranchPopup"  onkeyup="Javascript: if (event.keyCode == 27)
+		            closeThisPopupOnEscape(this)" tabindex="1000" role="dialog" aria-labelledby="myModalLabel" data-name="modalDiv" style="display: none; z-index:1000; background: rgba(0, 0, 0, 0.7); overflow: auto;">
+		    <div class="modal-dialog" role="document" style="top:100px;">
+		        <div class="modal-content">
+		            <div class="modal-header" style="border-bottom-color: #415165;">
+		                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeThisPopup(this)"><span aria-hidden="true">&times;</span></button>
+		                <h4 class="modal-title" id="myModalLabel" style="font-weight: bold;">Select Branch</h4>
+		            </div>
+		            <div class="modal-body">
+		                <div class="col-xs-12" style="margin-top: 20px;">
+		                    <div style="border-color: #e5e5e5 #eee #eee;  border-style: solid;  border-width: 2px; padding: 15px 15px 15px 15px;">
+			                    <div class="col-xs-6" style="padding-right: 0px;">
+			                        <div class="form-group ">
+										<a href="javascript:void(0);" id="branchInfoBranchId" data-branchInfo-id="-1" onclick="showPopup('BranchInfoPopup_', this)">Show branch popup</a>
+										<input type="text" class="form-control" id="branchInfoBranchbranchNameId" data-value-el="branchInfoBranch.branchName" label = "Branch"  data-is-lookup-field="1"/>								   
+			                            <button  class="btn btn-sm btn-primary" type="button" style="btn btn-sm btn-primary"  onclick="userLoginWithBranch()">Login With Branch</button>
+			                        </div>
+			                    </div>
+		                    </div>
+		                </div>
+		                <div style="clear: both;"></div>
+			            <div class="modal-footer" style="padding-top: 10px; padding-right: 30px; border-top-color: #415165;">
+			                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeThisPopup(this)">Close</button>
+			            </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	
+    </body>
+</html>

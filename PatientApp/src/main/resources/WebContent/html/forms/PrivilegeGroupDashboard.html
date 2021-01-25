@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> Patient App</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="/layouts/xacadpro/plugins/fontawesome-free/css/all.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="/layouts/xacadpro/plugins/daterangepicker/daterangepicker.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="/layouts/xacadpro/dist/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="/layouts/xacadpro/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+        <!-- overlayScrollbars -->
+        <link rel="stylesheet" href="/layouts/xacadpro/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="/layouts/xacadpro/dist/css/adminlte.min.css">
+        <!-- Google Font: Source Sans Pro -->
+        <!--link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"-->
+        <link rel="stylesheet" href="/layouts/xacadpro/css/custom.css">
+        <!-- jQuery -->
+        <script src="/layouts/xacadpro/plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="/layouts/xacadpro/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- InputMask -->
+        <script src="/layouts/xacadpro/plugins/moment/moment.min.js"></script>
+        <script src="/layouts/xacadpro/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+        <!-- date-range-picker -->
+        <script src="/layouts/xacadpro/plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- overlayScrollbars -->
+        <script src="/layouts/xacadpro/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+        <script src="/layouts/xacadpro/plugins/datatables/jquery.dataTables.js"></script>
+        <script src="/layouts/xacadpro/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+        <!-- AdminLTE App -->
+        <script src="/layouts/xacadpro/dist/js/adminlte.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="/layouts/xacadpro/js/themeSidebarUtil.js"></script>
+		
+
+        <script src="/js/variablesUtil.js" type="text/javascript"></script>
+        <script src="/js/fileUploadUtil.js" type="text/javascript"></script>
+        <script src="/js/helperutil.js" type="text/javascript"></script>
+	    <script src="/js/commonUtil.js" type="text/javascript"></script>
+        <script src="/js/forms/PrivilegeGroup/PrivilegeGroupJSWB.js" type="text/javascript"></script>        
+		<script src="/js/forms/PrivilegeGroup/PrivilegeGroupJSCustom.js" type="text/javascript"></script>
+		<script src="/js/forms/PrivilegeGroup/PrivilegeGroupJSExt.js" type="text/javascript"></script>
+		<script src="/js/forms/PrivilegeGroup/PrivilegeGroupJSBase.js" type="text/javascript"></script>
+        
+		<script src="/js/forms/PrivilegeGroupItems/PrivilegeGroupItemsJSCustom.js" type="text/javascript"></script>
+		<script src="/js/forms/PrivilegeGroupItems/PrivilegeGroupItemsJSExt.js" type="text/javascript"></script>
+		<script src="/js/forms/PrivilegeGroupItems/PrivilegeGroupItemsJSBase.js" type="text/javascript"></script>
+        
+		<script>
+		    $(document).ready(function ()
+		    {
+		    	gLayoutType = "XACADProTabbedLinear";
+		    	document.title = "Dashboard - PrivilegeGroup";
+				initializePanelOnLoadForCreatePrivilegeGroup();        
+		    });
+		</script>
+		
+		
+		
+
+		
+		
+		
+    </head>
+    <body class="hold-transition sidebar-mini text-sm          " >
+        <!-- Site wrapper -->
+        <div class="wrapper">
+            <!-- Navbar -->
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom-0  " data-is-main-header="1">
+                <!-- Left navbar links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="/home"><i class="fas fa-bars"></i></a>
+                    </li>
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="/home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="javascript:void(0)" class="nav-link" onclick="userLogout()">Logout</a>
+                    </li>
+                </ul>
+                <!-- SEARCH FORM -->
+                <form class="form-inline ml-3">
+                    <div class="input-group input-group-sm">
+                        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-navbar" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <!-- Right navbar links -->
+                <ul class="navbar-nav ml-auto">
+                </ul>
+            </nav>
+            <!-- /.navbar -->
+            <!-- Main Sidebar Container -->
+            <aside class="main-sidebar sidebar-dark-primary elevation-4" data-is-sidebar="1">
+                <!-- Brand Logo -->
+                <a href="javascript:void(0)" onclick="showModulesMenuPopup()" class="brand-link  navbar-   " data-is-brand-link="1">
+                    <span>&nbsp;&nbsp;</span>
+                    <i class="far fa-circle nav-icon text-success"></i>
+                    <span class="brand-text font-weight-light"> Patient App</span>
+                </a>
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Sidebar user (optional) -->
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="info">
+                            <a href="javascript:void(0)" class="d-block" >
+		                    <span>&nbsp;</span>
+		                    <i class="far fa-circle nav-icon text-info"></i>
+                            <span data-name="loginUserName">Alexander Pierce</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Sidebar Menu -->
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column        " data-widget="treeview" role="menu" data-accordion="false" data-is-nav-sidebar='1'>
+                             <!-- Add icons to the links using the .nav-icon class
+                                 with font-awesome or any other icon font library -->
+																		    <div data-name="moduleMenuDiv" data-module-name="VIS" >
+							
+						</div>
+					    <div data-name="moduleMenuDiv" data-module-name="PatientApp" >
+							
+														
+                            <li class="nav-item" data-element-name="userActionItem" data-privilege-item="ViewEntityDoctor" style="display:none;">
+                                <a data-element-name="userActionItem" data-privilege-item="ViewEntityDoctor" href="/entity/DoctorDashboard.html" data-name="MenuLink" style="display:none;" data-link-type="entity" data-entity-name="Doctor" class="nav-link">
+                                    <i class="far fa-circle nav-icon text-info"></i>
+                                    <p>
+                                        Doctor
+                                    </p>
+                                </a>
+                            </li>
+							
+                            <li class="nav-item" data-element-name="userActionItem" data-privilege-item="ViewEntityHospital" style="display:none;">
+                                <a data-element-name="userActionItem" data-privilege-item="ViewEntityHospital" href="/entity/HospitalDashboard.html" data-name="MenuLink" style="display:none;" data-link-type="entity" data-entity-name="Hospital" class="nav-link">
+                                    <i class="far fa-circle nav-icon text-info"></i>
+                                    <p>
+                                        Hospital
+                                    </p>
+                                </a>
+                            </li>
+							
+                            <li class="nav-item" data-element-name="userActionItem" data-privilege-item="ViewEntityContactUs" style="display:none;">
+                                <a data-element-name="userActionItem" data-privilege-item="ViewEntityContactUs" href="/entity/ContactUsDashboard.html" data-name="MenuLink" style="display:none;" data-link-type="entity" data-entity-name="ContactUs" class="nav-link">
+                                    <i class="far fa-circle nav-icon text-info"></i>
+                                    <p>
+                                        ContactUs
+                                    </p>
+                                </a>
+                            </li>
+
+							
+						</div>
+
+
+                        </ul>
+                    </nav>
+                    <!-- /.sidebar-menu -->
+                </div>
+                <!-- /.sidebar -->
+            </aside>
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+								
+
+					            <ul class="nav nav-tabs" role="tablist" id="custom-content-below-tab">
+					              <li class="nav-item">
+					                <a class="nav-link active" id="PrivilegeGroupDashboard-tab" data-toggle="pill" href="#PrivilegeGroupDashboard" role="tab" aria-selected="true">Dashboard</a>
+					              </li>
+					              <li class="nav-item">
+					                <a class="nav-link" id="PrivilegeGroup-tab" data-toggle="pill" href="#PrivilegeGroupTab" role="tab" aria-selected="true">Privilege Group</a>
+					              </li>
+														              <li class="nav-item">
+					                <a class="nav-link" id="PrivilegeGroupItems-tab" data-toggle="pill" href="#PrivilegeGroupItemsDashboard" role="tab" aria-selected="true">Privilege Group Items</a>
+					              </li>
+
+					            </ul>
+					            <div class="tab-content" id="custom-content-below-tabContent">
+					              <div class="tab-pane active show " id="PrivilegeGroupDashboard" role="tabpanel">
+									                                <div class="card  card-primary  " style="margin-top:20px;" data-is-card-header="1">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Search Privilege Group</h3>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body" data-name="privilegeGroupSearchResultsDiv">
+                                        <div class="dataTables_wrapper dt-bootstrap4" data-name="privilegeGroupSearchDiv">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <div class="dataTables_length" id="example1_length">
+                                                        <label>
+                                                            Show 
+                                                            <select name="example1_length" aria-controls="example1" class="custom-select custom-select-sm form-control1 form-control-sm" data-name="rowsPerPage">
+                                                                <option value="1">1</option>
+                                                                <option value="10">10</option>
+                                                                <option value="25">25</option>
+                                                                <option value="50">50</option>
+                                                                <option value="100" selected>100</option>
+                                                            </select>
+                                                            entries
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-8">
+                                                    <div style="float:right;">
+														
+														
+														
+                                                        <button data-element-name="userActionItem" data-privilege-item="DownloadEntityPrivilegeGroup" style="display:none;" type="button" class="btn btn-outline-primary   btn-xs    text-sm" onclick="downloadPrivilegeGroupData()" data-is-button='1'>Download</button>
+                                                        <button data-element-name="userActionItem" data-privilege-item="DownloadAllOtherDownloadAllEntities" style="display:none;" type="button" class="btn btn-outline-primary   btn-xs    text-sm" onclick="downloadAllEntities()" data-is-button='1'>Download All</button>
+				                                        <button data-element-name="userActionItem" data-privilege-item="UploadEntityPrivilegeGroup" style="display:none;" type="button" class="btn btn-outline-primary   btn-xs    text-sm" onclick="showUploadPoup()" data-is-button='1'>Upload</button>
+				                                        <button data-element-name="userActionItem" data-privilege-item="UploadAllOtherUploadAllEntities" style="display:none;" type="button" class="btn btn-outline-primary   btn-xs    text-sm" onclick="showAllEntitiesUploadPoup()" data-is-button='1'>Upload All</button>
+                                                        <button data-element-name="userActionItem" data-privilege-item="CreateEntityPrivilegeGroup" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs    text-sm" data-toggle="modal"  onclick="openPrivilegeGroupCreatePageForNew(this)" data-is-button='1'>+ New</button>
+                                                        <button data-element-name="userActionItem" data-privilege-item="ViewEntityPrivilegeGroup" style="display:none;"   type="submit" class="btn btn-outline-primary   btn-xs    text-sm" data-toggle="modal"  onclick="retrievePrivilegeGroupList()" data-is-button='1'>Search</button>
+                                                    </div>
+                                                </div>
+                                            </div>                                        
+                                            <div class="row" >
+                                                <div class="col-sm-12">
+                                                    <table class="table table-bordered table-hover table-responsive"  style="display:table;">
+                                                        <thead>
+                                                            <tr style="cursor: pointer;">
+		                                                        <th>
+		                                                            <div class="form-group">
+		                                                                <label >Sl.No</label>
+		                                                                <input type="text" class="form-control" readonly="true"/>
+		                                                            </div>
+		                                                        </th>
+		                                                        
+		                                                        		                                                        
+		                                                        <!--Input-->
+		                                                        <th>
+		                                                            <div class="form-group">
+		                                                                <label >Privilege Group Name</label>
+																		
+		                                                            </div>
+		                                                        </th>
+		                                                        
+		                                                        <!--Input-->
+		                                                        <th>
+		                                                            <div class="form-group">
+		                                                                <label >Privilege Code</label>
+																		
+		                                                            </div>
+		                                                        </th>
+		                                                        
+		                                                        <!--Combo-->
+		                                                        <th>
+		                                                            <div class="form-group">
+		                                                                <label >Applicable User Type</label>
+																		
+		                                                            </div>
+		                                                        </th>
+		                                                        
+		                                                        <!--Input-->
+		                                                        <th>
+		                                                            <div class="form-group">
+		                                                                <label >Self Service User</label>
+																		
+		                                                            </div>
+		                                                        </th>
+		                                                        
+		                                                        <!--Text-->
+		                                                        <th>
+		                                                            <div class="form-group">
+		                                                                <label >Privilege Group Description</label>
+																		
+		                                                            </div>
+		                                                        </th>
+
+		                                                        <th style="display:none;">
+		                                                        Status
+		                                                        </th> 
+		                                                        <th style="display:none;">
+		                                                        Action
+		                                                        </th> 
+		                                                        <th style="display:none;">
+		                                                        Reject
+		                                                        </th> 
+																
+																
+
+<th data-element-name="userActionItem" data-privilege-item="UpdatePrivilegeGroupItemsOtherPrivilegeGroup" style="display:none;" >
+Configure Privilges
+</th> 
+
+		                                                        <th>
+		                                                        </th> 
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody data-name="privilegeGroupSearchResults">
+															<tr style="cursor: pointer; display:none" data-name="privilegeGroupRow"  >
+															<td data-name="recordNo">
+															</td>
+	                                                        
+																														<td>
+															<p data-name="PrivilegeGroup_privilegeGroupName"></p>
+															</td>
+															<td>
+															<p data-name="PrivilegeGroup_privilegeCode"></p>
+															</td>
+															<td>
+															<p data-name="PrivilegeGroup_applicableUserType"></p>
+															</td>
+															<td>
+															<p data-name="PrivilegeGroup_selfServiceUser"></p>
+															</td>
+															<td>
+															<p data-name="PrivilegeGroup_privilegeGroupDescription"></p>
+															</td>
+
+															<td data-name="privilegeGroupVwTxnStatus" style="display:none;">
+															</td>
+															<td data-name="privilegeGroupRowActionButtonDiv" style="display:none;">
+															
+															
+															<button type="submit" class="btn btn-outline-primary btn-sm" data-is-search-result="1" data-name="privilegeGroupActionButton" onclick="executeAuthorisationOnPrivilegeGroup(this, {'isSearchResult':1})" ></button>
+															
+															</td>
+															<td style="display:none;">
+																<button type="submit"  style="display: none" class="btn btn-outline-primary btn-sm" data-is-search-result="1"  data-name="privilegeGroupRejectButton" onclick="executeAuthorisationOnPrivilegeGroup(this, {'isSearchResult':1, 'currentAction':'REJECT'})" >Reject</button>
+															</td>
+															
+															
+
+<td data-element-name="userActionItem" data-privilege-item="UpdatePrivilegeGroupItemsOtherPrivilegeGroup" style="display:none;"><button type="button" class="btn btn-block btn-primary" onclick="showPrivilegeConfigurationPopup(this)">Configure</button></td>
+
+															<td>
+															<a data-element-name="userActionItem" data-privilege-item="ViewEntityPrivilegeGroup"   style="display:none;" href="javascript:void(0);" onclick="openViewPageForPrivilegeGroupForEdit(this)" data-toggle="tooltip" data-placement="top" title="Edit"><img src="/images/edit.png" style="width:15px; height: 15px;"/></a>&nbsp;
+															<a data-element-name="userActionItem" data-privilege-item="DeleteEntityPrivilegeGroup" style="display:none;" href="javascript:void(0);" onclick="deleteThisPrivilegeGroup(this)" data-toggle="tooltip" data-placement="top" title="Delete"><img src="/images/delete.png" style="width:15px; height: 15px;"/></a>&nbsp;
+															</td>
+															</tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>                                        
+                                            <div class="row" data-name="recordCountAndPaginationBlock" style="display: none">
+                                                <div class="col-sm-12 col-md-5" data-name="recordsCountDiv">
+                                                    <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">
+													Showing <span data-name="startingRecordNo">0</span> to <span data-name="endingRecordNo">0</span> of <span data-name="totalRecordsCount">0</span> <span data-name="searchResultsEntityName">entries</span>                                                    
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-7">
+                                                    <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                                                        <ul class="pagination" style="display:none;" data-name="paginationUl" data-selected-index="1">
+				                                            <li class="paginate_button page-item previous" data-name="paginationPreviousLinkLi" data-is-previous="0" onclick="showPreviousPrivilegeGroupRecords(this);">
+				                                                <a href="javascript:void(0)" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+				                                            </li>
+															<li data-name="paginationLi" class="paginate_button page-item "  >
+															<a href="javascript:void(0);" class="page-link" onkeyup="showPrevOrNextSearchPrivilegeGroupResults(event, this)" onfocus="showCurrentPagePrivilegeGroupRecords(this);" data-name="paginationLiLink" >1</a>
+															</li>
+															<li data-name="paginationNextLinkLi" class="paginate_button page-item next" >
+																<a href="javascript:void(0);" aria-label="Next" class="page-link" data-is-next="0" onclick="showNextRecords(this);">
+																	Next
+																</a>
+															</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+
+					              </div>
+					              <div class="tab-pane fade" id="PrivilegeGroupTab" role="tabpanel">
+								                                    <div class="card  card-primary  " style="margin-top:20px;" data-is-card-header="1">
+                                    <div class="card-header">
+                                        <h3 class="card-title" >
+											Privilege Group                                            
+                                        </h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-md-12" style="clear:both;">
+                                            <div style="float:right;" id="actionButtonsDivForPrivilegeGroup">
+		                                        
+                                                <div  data-name="privilegeGroupActionButtonDiv" style="display:inline;">
+                                                </div>
+					                        	<div data-name="privilegeGroupCreateFormButtonsDiv" style="display: inline">
+												
+												
+	                                                <button data-element-name="userActionItem" data-privilege-item="CreateEntityPrivilegeGroup" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs  text-sm" onclick="createPrivilegeGroup()" data-is-button='1'>Save</button>
+	                                                <button data-element-name="userActionItem" data-privilege-item="CreateEntityPrivilegeGroup" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs  text-sm" onclick="fetchPrivilegeGroupTestData()" data-is-button='1'>Test Data</button>
+																								
+					                        	</div>
+					                        	<div data-name="privilegeGroupViewFormButtonsDiv" style="display: none">
+												
+												
+												
+												
+												
+	                                                <button type="submit" data-element-name="userActionItem" data-privilege-item="CreateEntityPrivilegeGroup" style="display:none;" class="btn btn-outline-primary   btn-xs  text-sm" onclick="resetFormForPrivilegeGroup()" data-is-button='1'>New</button>
+	                                                <button type="submit" data-element-name="userActionItem" data-privilege-item="UpdateEntityPrivilegeGroup" style="display:none;" class="btn btn-outline-primary   btn-xs  text-sm" onclick="updatePrivilegeGroup()" data-is-button='1'>Update</button>
+	                                                <button type="submit" data-element-name="userActionItem" data-privilege-item="DeleteEntityPrivilegeGroup" style="display:none;" class="btn btn-outline-danger   btn-xs  text-sm" onclick="deletePrivilegeGroup()" data-is-button='1'>Delete</button>
+																								
+	                                                
+					                        	</div>
+		                                        
+                                            </div>
+                                        </div>
+                                        <div style="clear:both;">
+                                        </div>
+									<div class="row">
+										
+										
+										
+                                        <div class="col-md-6" data-name="PrivilegeGroupContent">
+                                            <div class="form-group" style="display: none">
+                                                <label>Id</label>
+                                                <input type="text"  class="form-control" id="idValueForPrivilegeGroup" readonly="true" />
+                                            </div>
+                                            											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="PrivilegeGroup_privilegeGroupName"  >Privilege Group Name*</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="PrivilegeGroup_privilegeGroupName"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="PrivilegeGroup_privilegeCode"  >Privilege Code*</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="PrivilegeGroup_privilegeCode"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+                                                <label class="col-sm-4 col-form-label" for="PrivilegeGroup_applicableUserType" >Applicable User Type*</label>
+												<div class="col-sm-8">
+	                                                <select class="form-control" id="PrivilegeGroup_applicableUserType" onchange="selectOptionChangedForPrivilegeGroup('applicableUserType')"   >
+	                                                    
+	                                                    
+	                                                    
+	                                                    <option value=""></option>
+	                                                    
+	                                                    <option value="Admin">Admin</option>
+	                                                    
+	                                                    <option value="SelfService">SelfService</option>
+	                                                    
+	                                                    
+	                                                </select>
+		                                        </div>
+                                            </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="PrivilegeGroup_selfServiceUser"  >Self Service User</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="PrivilegeGroup_selfServiceUser"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+                                                <label class="col-sm-4 col-form-label" for="PrivilegeGroup_privilegeGroupDescription"  >Privilege Group Description</label>
+												<div class="col-sm-8">
+	                                                <textarea  class="form-control" id="PrivilegeGroup_privilegeGroupDescription"  rows="3"   ></textarea>
+		                                        </div>
+                                            </div>
+
+                                        </div>
+									<!--div class="row"-->
+                                    </div>
+                                    </div>
+                                     <!--.card--> 
+                                </div>
+
+					              </div>
+													              <div class="tab-pane fade" id="PrivilegeGroupItemsDashboard" role="tabpanel">
+								                                    <div class="card card-primary " data-name="PrivilegeGroupItemsContent" data-is-card-header="1">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Privilege Group Items</h3>
+                                    </div>
+                                     <!--.card-header--> 
+                                    <div class="card-body">
+                                        <div class="col-md-12" style="clear:both;">
+                                            <div style="float:right;">
+                                                <button type="submit" data-element-name="userActionItem" data-privilege-item="CreateEntityPrivilegeGroupItems" style="display:none;" class="btn btn-outline-primary    btn-xs  text-sm" onclick="showPrivilegeGroupItemsPopupForNew(this)" data-is-button='1'>+ New</button>
+                                            </div>
+                                        </div>
+                                        <div style="clear:both;margin-bottom: 10px;">
+                                        </div>
+                                        <table id="example3" class="table table-bordered table-hover table-responsive">
+                                            <thead>
+                                                <tr style="cursor: pointer;"> 
+                                                                                                        <th>Action Type</th>
+                                                    <th>Object Type</th>
+                                                    <th>Object Name</th>
+
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody data-name="privilegeGroupItemsList">
+												<tr style="cursor: pointer; display: none;" data-name="privilegeGroupItemsRow"  >
+																								<td data-name="privilegeActionType">
+												</td>
+												<td data-name="privilegeObjectType">
+												</td>
+												<td data-name="privilegeObjectName">
+												</td>
+
+												<td>
+												<a href="javascript:void(0);" onclick="showPrivilegeGroupItemsPopupForEdit(this)" data-toggle="tooltip" data-placement="top" title="Edit"><img src="/images/edit.png" style="width:15px; height: 15px;"/></a>&nbsp;
+												<a href="javascript:void(0);" onclick="deleteThisPrivilegeGroupItems(this)" data-toggle="tooltip" data-placement="top" title="Delete"><img src="/images/delete.png" style="width:15px; height: 15px;"/></a>&nbsp;
+												</td>
+												</tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                     <!--.card-body---> 
+                                </div>
+
+					              </div>
+
+					            </div>
+
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- ./row -->
+                    </div><!-- /.container-fluid -->
+                </section>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer " data-is-main-footer='1'>
+                <div class="float-right d-none d-sm-block">
+                    <b></b>
+                </div>
+                <strong>Copyright &copy; <a href="http://harivaratechsol.com">Harivara Technology Solutions</a>.</strong> All rights
+                reserved.
+            </footer>
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark" style="top: 57px; height: 225px; display: none;">
+                <!-- Control sidebar content goes here -->
+            </aside>  <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+		
+
+    <div data-name="popupsDiv">
+		
+		
+        
+	            <div class="modal" data-name="PrivilegeGroupItemsPopup" onkeyup="Javascript: if (event.keyCode == 27)
+            closeThisPopupOnEscape(this)" style="display: none; background: rgba(0, 0, 0, 0.7);overflow: auto;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content" style="border-top: 3px solid #007bff;">
+                    <div class="modal-header">
+                        <h4 class="modal-title"> Privilege Group Items </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeThisPopup(this)">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+					            <ul class="nav nav-tabs" role="tablist" id="custom-content-below-tab">
+					              <li class="nav-item">
+					                <a class="nav-link active" id="PrivilegeGroupItems-tab" data-toggle="pill" href="#PrivilegeGroupItemsTab" role="tab" aria-selected="true">Privilege Group Items</a>
+					              </li>
+									
+					            </ul>
+					            <div class="tab-content" id="custom-content-below-tabContent">
+					              <div class="tab-pane active show" id="PrivilegeGroupItemsTab" role="tabpanel">
+								                                    <div class="card  card-primary  " style="margin-top:20px;" data-is-card-header="1">
+                                    <div class="card-header">
+                                        <h3 class="card-title" >
+											Privilege Group Items                                            
+                                        </h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-md-12" style="clear:both;">
+                                            <div style="float:right;" id="actionButtonsDivForPrivilegeGroupItems">
+		                                        
+		                                        
+					                        	<div data-name="privilegeGroupItemsCreateFormButtonsDiv" style="display: inline">
+												
+												
+	                                                <button data-element-name="userActionItem" data-privilege-item="CreateEntityPrivilegeGroupItems" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs  text-sm" onclick="createPrivilegeGroupItems()" data-is-button='1'>Save</button>
+	                                                <button data-element-name="userActionItem" data-privilege-item="CreateEntityPrivilegeGroupItems" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs  text-sm" onclick="fetchPrivilegeGroupItemsTestData()" data-is-button='1'>Test Data</button>
+																								
+					                        	</div>
+					                        	<div data-name="privilegeGroupItemsViewFormButtonsDiv" style="display: none">
+												
+												
+	                                                <button data-element-name="userActionItem" data-privilege-item="CreateEntityPrivilegeGroupItems" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs    text-sm" onclick="resetFormForPrivilegeGroupItems()" data-is-button='1'>New</button>
+	                                                <button data-element-name="userActionItem" data-privilege-item="UpdateEntityPrivilegeGroupItems" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs  text-sm" onclick="updatePrivilegeGroupItems()" data-is-button='1'>Update</button>
+	                                                <button data-element-name="userActionItem" data-privilege-item="DeleteEntityPrivilegeGroupItems" style="display:none;" type="submit" class="btn btn-outline-danger   btn-xs  text-sm" onclick="deletePrivilegeGroupItems()" data-is-button='1'>Delete</button>
+																								
+					                        	</div>
+                                            </div>
+                                        </div>
+                                        <div style="clear:both;">
+                                        </div>
+									<div class="row">
+										
+										
+										
+                                        <div class="col-md-6" data-name="PrivilegeGroupItemsContent">
+                                            <div class="form-group" style="display: none">
+                                                <label>Id</label>
+                                                <input type="text"  class="form-control" id="idValueForPrivilegeGroupItems" readonly="true" />
+                                            </div>
+                                            											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="PrivilegeGroupItems_privilegeActionType"  >Action Type*</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="PrivilegeGroupItems_privilegeActionType"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="PrivilegeGroupItems_privilegeObjectType"  >Object Type*</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="PrivilegeGroupItems_privilegeObjectType"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="PrivilegeGroupItems_privilegeObjectName"  >Object Name*</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="PrivilegeGroupItems_privilegeObjectName"   />
+		                                        </div>
+	                                        </div>
+
+                                        </div>
+									<!--div class="row"-->
+                                    </div>
+                                    </div>
+                                     <!--.card--> 
+                                </div>
+
+					              </div>
+								
+					            </div>
+                    </div>
+                    <div class="modal-footer" style="float: right;">
+                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="closeThisPopup(this)">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+	    
+        
+		
+		
+
+        <div class="modal" data-name="PrivilegeGroupConfigurationPopup" onkeyup="Javascript: if (event.keyCode == 27)
+            closeThisPopupOnEscape(this)" style="display: none; background: rgba(0, 0, 0, 0.7);overflow: auto;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content" style="border-top: 3px solid #007bff;">
+                    <div class="modal-header">
+                        <h4 class="modal-title"> Privilege Group Items </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeThisPopup(this)">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+					            <div class="tab-content" id="custom-content-below-tabContent">
+					              <div class="tab-pane active show" id="PrivilegeGroupItemsTab" role="tabpanel" style="overflow-x : auto;">
+                                        <div class="col-md-12" style="clear:both;">
+                                            <div style="float:left;">
+                                                <button type="submit" onclick="selectAllPrivilegeItems()" class="btn btn-outline-primary    btn-xs  text-sm" data-is-button='1'>Select All</button>
+                                                <button type="submit" onclick="unselectAllPrivilegeItems()" class="btn btn-outline-primary    btn-xs  text-sm" data-is-button='1'>Unselect All</button>
+                                            </div>
+                                            <div style="float:right;">
+                                                <button type="submit" data-element-name="userActionItem" data-privilege-item="UpdatePrivilegeGroupItemsOtherPrivilegeGroup" style="display:none;" onclick="savePrivilegeGroupItemsList(this)"  class="btn btn-outline-primary    btn-xs  text-sm" data-is-button='1'>Update</button>
+                                            </div>
+                                        </div>
+                                        <div style="clear:both;margin-bottom: 10px;">
+                                        </div>
+                                        <table class="table table-bordered table-hover table-responsive" style="display: table;">
+                                            <thead>
+                                                <tr style="cursor: pointer;"> 
+                                                    <th>Name</th>
+                                                    <th>Select All</th>
+                                                    <th>Create</th>
+                                                    <th>View</th>
+                                                    <th>Update</th>
+                                                    <th>Delete</th>
+                                                    <th>Verify</th>
+                                                    <th>Approve</th>
+                                                    <th>Rollback</th>
+                                                    <th>Upload</th>
+                                                    <th>Download</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+																								<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="Organisations" >
+												<td>Organisations</td>
+												<td><input type="checkbox"  onclick="toggleEntityActionTypes(this)"  data-name="entityCheckbox" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Create" data-object-type="Entity" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="View" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Update" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Delete" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Verify" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Approve" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Rollback" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Upload" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Download" data-object-type="Entity"></td>
+												</tr>
+												<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="UserInfo" >
+												<td>User Info</td>
+												<td><input type="checkbox"  onclick="toggleEntityActionTypes(this)"  data-name="entityCheckbox" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Create" data-object-type="Entity" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="View" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Update" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Delete" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Verify" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Approve" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Rollback" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Upload" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Download" data-object-type="Entity"></td>
+												</tr>
+												<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="PrivilegeGroup" >
+												<td>Privilege Group</td>
+												<td><input type="checkbox"  onclick="toggleEntityActionTypes(this)"  data-name="entityCheckbox" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Create" data-object-type="Entity" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="View" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Update" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Delete" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Verify" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Approve" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Rollback" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Upload" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Download" data-object-type="Entity"></td>
+												</tr>
+												<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="PrivilegeGroupItems" >
+												<td>Privilege Group Items</td>
+												<td><input type="checkbox"  onclick="toggleEntityActionTypes(this)"  data-name="entityCheckbox" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Create" data-object-type="Entity" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="View" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Update" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Delete" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Verify" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Approve" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Rollback" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Upload" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Download" data-object-type="Entity"></td>
+												</tr>
+												<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="EmployeeRoles" >
+												<td>Employee Roles</td>
+												<td><input type="checkbox"  onclick="toggleEntityActionTypes(this)"  data-name="entityCheckbox" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Create" data-object-type="Entity" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="View" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Update" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Delete" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Verify" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Approve" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Rollback" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Upload" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Download" data-object-type="Entity"></td>
+												</tr>
+												<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="LoginSessionInfo" >
+												<td>Login Session Info</td>
+												<td><input type="checkbox"  onclick="toggleEntityActionTypes(this)"  data-name="entityCheckbox" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Create" data-object-type="Entity" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="View" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Update" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Delete" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Verify" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Approve" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Rollback" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Upload" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Download" data-object-type="Entity"></td>
+												</tr>
+												<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="ConfigProperties" >
+												<td>Properties</td>
+												<td><input type="checkbox"  onclick="toggleEntityActionTypes(this)"  data-name="entityCheckbox" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Create" data-object-type="Entity" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="View" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Update" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Delete" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Verify" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Approve" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Rollback" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Upload" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Download" data-object-type="Entity"></td>
+												</tr>
+												<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="TaskInfo" >
+												<td>TaskInfo</td>
+												<td><input type="checkbox"  onclick="toggleEntityActionTypes(this)"  data-name="entityCheckbox" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Create" data-object-type="Entity" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="View" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Update" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Delete" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Verify" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Approve" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Rollback" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Upload" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Download" data-object-type="Entity"></td>
+												</tr>
+												<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="TaskExecutionInfo" >
+												<td>Task Execution Info</td>
+												<td><input type="checkbox"  onclick="toggleEntityActionTypes(this)"  data-name="entityCheckbox" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Create" data-object-type="Entity" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="View" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Update" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Delete" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Verify" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Approve" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Rollback" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Upload" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Download" data-object-type="Entity"></td>
+												</tr>
+												<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="TaskLayoutParameters" >
+												<td>Task Layout Parameters</td>
+												<td><input type="checkbox"  onclick="toggleEntityActionTypes(this)"  data-name="entityCheckbox" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Create" data-object-type="Entity" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="View" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Update" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Delete" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Verify" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Approve" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Rollback" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Upload" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Download" data-object-type="Entity"></td>
+												</tr>
+												<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="EmailAttachmentLayout" >
+												<td>Email Attachment Layout</td>
+												<td><input type="checkbox"  onclick="toggleEntityActionTypes(this)"  data-name="entityCheckbox" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Create" data-object-type="Entity" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="View" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Update" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Delete" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Verify" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Approve" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Rollback" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Upload" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Download" data-object-type="Entity"></td>
+												</tr>
+												<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="TaskScheduleInfo" >
+												<td>Task Schedule Info</td>
+												<td><input type="checkbox"  onclick="toggleEntityActionTypes(this)"  data-name="entityCheckbox" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Create" data-object-type="Entity" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="View" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Update" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Delete" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Verify" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Approve" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Rollback" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Upload" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Download" data-object-type="Entity"></td>
+												</tr>
+												<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="TaskSentInfo" >
+												<td>Task Sent Info</td>
+												<td><input type="checkbox"  onclick="toggleEntityActionTypes(this)"  data-name="entityCheckbox" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Create" data-object-type="Entity" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="View" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Update" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Delete" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Verify" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Approve" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Rollback" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Upload" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Download" data-object-type="Entity"></td>
+												</tr>
+												<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="Patient" >
+												<td>Patient</td>
+												<td><input type="checkbox"  onclick="toggleEntityActionTypes(this)"  data-name="entityCheckbox" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Create" data-object-type="Entity" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="View" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Update" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Delete" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Verify" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Approve" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Rollback" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Upload" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Download" data-object-type="Entity"></td>
+												</tr>
+												<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="Doctor" >
+												<td>Doctor</td>
+												<td><input type="checkbox"  onclick="toggleEntityActionTypes(this)"  data-name="entityCheckbox" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Create" data-object-type="Entity" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="View" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Update" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Delete" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Verify" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Approve" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Rollback" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Upload" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Download" data-object-type="Entity"></td>
+												</tr>
+												<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="Hospital" >
+												<td>Hospital</td>
+												<td><input type="checkbox"  onclick="toggleEntityActionTypes(this)"  data-name="entityCheckbox" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Create" data-object-type="Entity" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="View" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Update" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Delete" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Verify" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Approve" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Rollback" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Upload" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Download" data-object-type="Entity"></td>
+												</tr>
+												<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="ContactUs" >
+												<td>ContactUs</td>
+												<td><input type="checkbox"  onclick="toggleEntityActionTypes(this)"  data-name="entityCheckbox" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Create" data-object-type="Entity" ></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="View" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Update" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Delete" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Verify" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Approve" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Rollback" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Upload" data-object-type="Entity"></td>
+												<td><input type="checkbox"  onclick="toggleEntityCheckbox(this)" data-name="privilegeGroupItem" data-privilege-action-type="Download" data-object-type="Entity"></td>
+												</tr>
+
+                                            </tbody>
+                                        </table>
+                                        <div style="clear:both;margin-bottom: 10px;">
+                                        </div>
+                                        <h1>Reports</h1>
+                                        <table class="table table-bordered table-hover table-responsive">
+                                            <thead>
+                                                <tr style="cursor: pointer;"> 
+                                                    <th>Report Name</th>
+                                                    <th>Access To Report</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+											
+											<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="Organisations" >
+											<td>Organisations</td>
+											<td><input type="checkbox"  data-name="privilegeGroupItem" data-privilege-action-type="accessLayout" data-object-type="Report"></td>
+											</tr>
+											<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="UserInfo" >
+											<td>UserInfo</td>
+											<td><input type="checkbox"  data-name="privilegeGroupItem" data-privilege-action-type="accessLayout" data-object-type="Report"></td>
+											</tr>
+											<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="PrivilegeGroup" >
+											<td>PrivilegeGroup</td>
+											<td><input type="checkbox"  data-name="privilegeGroupItem" data-privilege-action-type="accessLayout" data-object-type="Report"></td>
+											</tr>
+											<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="LoginSessionInfo" >
+											<td>LoginSessionInfo</td>
+											<td><input type="checkbox"  data-name="privilegeGroupItem" data-privilege-action-type="accessLayout" data-object-type="Report"></td>
+											</tr>
+											<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="ConfigProperties" >
+											<td>ConfigProperties</td>
+											<td><input type="checkbox"  data-name="privilegeGroupItem" data-privilege-action-type="accessLayout" data-object-type="Report"></td>
+											</tr>
+											<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="TaskInfo" >
+											<td>TaskInfo</td>
+											<td><input type="checkbox"  data-name="privilegeGroupItem" data-privilege-action-type="accessLayout" data-object-type="Report"></td>
+											</tr>
+											<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="TaskScheduleInfo" >
+											<td>TaskScheduleInfo</td>
+											<td><input type="checkbox"  data-name="privilegeGroupItem" data-privilege-action-type="accessLayout" data-object-type="Report"></td>
+											</tr>
+											<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="TaskSentInfo" >
+											<td>TaskSentInfo</td>
+											<td><input type="checkbox"  data-name="privilegeGroupItem" data-privilege-action-type="accessLayout" data-object-type="Report"></td>
+											</tr>
+											<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="Doctor" >
+											<td>Doctor</td>
+											<td><input type="checkbox"  data-name="privilegeGroupItem" data-privilege-action-type="accessLayout" data-object-type="Report"></td>
+											</tr>
+											<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="Hospital" >
+											<td>Hospital</td>
+											<td><input type="checkbox"  data-name="privilegeGroupItem" data-privilege-action-type="accessLayout" data-object-type="Report"></td>
+											</tr>
+											<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="ContactUs" >
+											<td>ContactUs</td>
+											<td><input type="checkbox"  data-name="privilegeGroupItem" data-privilege-action-type="accessLayout" data-object-type="Report"></td>
+											</tr>
+                                            </tbody>
+                                        </table>
+                                        <h1>Others</h1>
+                                        <table class="table table-bordered table-hover table-responsive">
+                                            <thead>
+                                                <tr style="cursor: pointer;"> 
+                                                    <th>Privilege Type</th>
+                                                    <th>Create</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+											<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="UploadAllEntities" >
+											<td>Upload All Entities</td>
+											<td><input type="checkbox"  data-name="privilegeGroupItem" data-privilege-action-type="UploadAll" data-object-type="Other"></td>
+											</tr>
+											<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="DownloadAllEntities" >
+											<td>Download All Entities</td>
+											<td><input type="checkbox"  data-name="privilegeGroupItem" data-privilege-action-type="DownloadAll" data-object-type="Other"></td>
+											</tr>
+											<tr style="cursor: pointer;" date-name="privilegeRow" data-object-name="PrivilegeGroup" >
+											<td>Update Privilege Group Items</td>
+											<td><input type="checkbox"  data-name="privilegeGroupItem" data-privilege-action-type="UpdatePrivilegeGroupItems" data-object-type="Other"></td>
+											</tr>
+											
+											
+                                            </tbody>
+                                        </table>
+					              </div>
+					            </div>
+                    </div>
+                    <div class="modal-footer" style="float: right;">
+                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="closeThisPopup(this)">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<div class="modal" data-name="fileUploadPopup"
+			onkeyup="Javascript: if (event.keyCode == 27)
+            closeThisPopupOnEscape(this)"
+			style="display: none; background: rgba(0, 0, 0, 0.7); overflow: auto;">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content" style="border-top: 3px solid #007bff;">
+					<div class="modal-header">
+						<h4 class="modal-title">Upload Privilege Group</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close" onclick="closeThisPopup(this)">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="card  card-primary  " style="margin-top: 20px;"
+							data-is-card-header="1">
+							<div class="card-header">
+								<h3 class="card-title">Upload Privilege Group</h3>
+							</div>
+							<div class="card-body">
+                                            <div data-name="fileUploadDivElement" data-callback-function-name="setUploadDataInputFiles">
+										        <div class="form-group row"> 
+	                                                <label class="col-sm-4 col-form-label" >Input Files Zip</label>
+													<div class="col-sm-8">
+		                                                <div class="input-group">
+		                                                    <div class="custom-file" data-name="formDiv">
+		                                                        <input type="file" class="custom-file-input" data-name="upoadDataInputFilesZip" name="uploadInputFile" />
+		                                                        <label class="custom-file-label" for="exampleInputFile">Select Input Files Zip</label>
+																<span class="invalid-feedback">Select Custom Files Zip</span>
+		                                                    </div>
+		                                                    <div class="input-group-append">
+		                                                        <span class="input-group-text" id="" onclick="uploadFile(event, this)">Upload</span>
+		                                                    </div>
+															<span style="width: 100%; font-size: 80%; color: darkgray; text-align: left">* Click upload button after selecting input files zip</span>
+		                                                </div>
+			                                            <div class="input-group" data-name="fileUploadSuccessMessageDiv" style="display: none;">
+															<span style="width: 100%; font-size: 85%; color: cornflowerblue; text-align: left">Input Files Zip Uploaded Successfully</span>
+										                </div>
+			                                        </div>
+	                                            </div>
+							                </div>
+								<div class="col-xs-12" data-name="fileUploadDivElement" data-object-type="PrivilegeGroup" data-callback-function-name="uploadPrivilegeGroupData" >
+					                <div class="form-group">
+					                    <label  class="col-sm-4 control-label" >File Attachments</label>
+					                    <div class="col-sm-8 form-control-static" data-name="formDiv">
+					                        <input type="file" name="uploadInputFile" />
+					                    </div>
+					                </div>
+					                <div class="form-group" data-name="uploadedFilesDiv" style="display: none;">
+					                    <label  class="col-sm-4 control-label" >&nbsp;</label>
+					                    <div class="col-sm-8 form-control-static" data-name="fileUploadMessageElement" data-upload-one-file=0>
+					                         file uploads list
+					                    </div>
+					                </div>
+		                            <div class="form-group form-check">
+		                                <input type="checkbox" class="form-check-input" data-name="areSourceDestinationSame" />
+		                                <label class="form-check-label" >Same Source Destination</label>
+		                            </div>
+					                <div class="form-group" data-name="uploadButtonDiv">
+					                    <div class="col-sm-offset-4 col-sm-8">
+					                        <button type="button" class="btn btn-sm  btn-default btn-primary" onclick="uploadFile(event, this)">Upload File</button>
+		                                     </br><a href="" class="card-link" data-name="uploadResultsLink" style="display: none" target="_blank">Show Upload Results</a>
+					                    </div>
+					                </div>
+								</div>
+								<div style="clear: both;"></div>
+							</div>
+							<!--.card-->
+						</div>
+					</div>
+					<div class="modal-footer" style="float: right;">
+						<button type="button" class="btn btn-outline-primary btn-sm"
+							onclick="closeThisPopup(this)">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal" data-name="allEntitiesUploadPopup"
+			onkeyup="Javascript: if (event.keyCode == 27)
+            closeThisPopupOnEscape(this)"
+			style="display: none; background: rgba(0, 0, 0, 0.7); overflow: auto;">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content" style="border-top: 3px solid #007bff;">
+					<div class="modal-header">
+						<h4 class="modal-title">Upload Data</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close" onclick="closeThisPopup(this)">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="card  card-primary  " style="margin-top: 20px;"
+							data-is-card-header="1">
+							<div class="card-header">
+								<h3 class="card-title">Upload Data</h3>
+							</div>
+							<div class="card-body">
+                                            <div data-name="fileUploadDivElement" data-callback-function-name="setUploadDataInputFiles">
+										        <div class="form-group row"> 
+	                                                <label class="col-sm-4 col-form-label" >Input Files Zip</label>
+													<div class="col-sm-8">
+		                                                <div class="input-group">
+		                                                    <div class="custom-file" data-name="formDiv">
+		                                                        <input type="file" class="custom-file-input" data-name="upoadDataInputFilesZip" name="uploadInputFile" />
+		                                                        <label class="custom-file-label" for="exampleInputFile">Select Input Files Zip</label>
+																<span class="invalid-feedback">Select Custom Files Zip</span>
+		                                                    </div>
+		                                                    <div class="input-group-append">
+		                                                        <span class="input-group-text" id="" onclick="uploadFile(event, this)">Upload</span>
+		                                                    </div>
+															<span style="width: 100%; font-size: 80%; color: darkgray; text-align: left">* Click upload button after selecting input files zip</span>
+		                                                </div>
+			                                            <div class="input-group" data-name="fileUploadSuccessMessageDiv" style="display: none;">
+															<span style="width: 100%; font-size: 85%; color: cornflowerblue; text-align: left">Input Files Zip Uploaded Successfully</span>
+										                </div>
+			                                        </div>
+	                                            </div>
+							                </div>
+								<div class="col-xs-12" data-name="fileUploadDivElement" data-object-type="PrivilegeGroup" data-callback-function-name="uploadAllEntities" >
+					                <div class="form-group">
+					                    <label  class="col-sm-4 control-label" >File Attachments</label>
+					                    <div class="col-sm-8 form-control-static" data-name="formDiv">
+					                        <input type="file" name="uploadInputFile" />
+					                    </div>
+					                </div>
+					                <div class="form-group" data-name="uploadedFilesDiv" style="display: none;">
+					                    <label  class="col-sm-4 control-label" >&nbsp;</label>
+					                    <div class="col-sm-8 form-control-static" data-name="fileUploadMessageElement" data-upload-one-file=0>
+					                         file uploads list
+					                    </div>
+					                </div>
+		                            <div class="form-group form-check">
+		                                <input type="checkbox" class="form-check-input" data-name="areSourceDestinationSame" />
+		                                <label class="form-check-label" >Same Source Destination</label>
+		                            </div>
+					                <div class="form-group" data-name="uploadButtonDiv">
+					                    <div class="col-sm-offset-4 col-sm-8">
+					                        <button type="button" class="btn btn-sm  btn-default btn-primary" onclick="uploadFile(event, this)">Upload File</button>
+		                                     </br><a href="" class="card-link" data-name="uploadResultsLink" style="display: none" target="_blank">Show Upload Results</a>
+					                    </div>
+					                </div>
+								</div>
+								<div style="clear: both;"></div>
+							</div>
+							<!--.card-->
+						</div>
+					</div>
+					<div class="modal-footer" style="float: right;">
+						<button type="button" class="btn btn-outline-primary btn-sm"
+							onclick="closeThisPopup(this)">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+
+    </body>
+</html>
+
+
+
+
+
+
+
+

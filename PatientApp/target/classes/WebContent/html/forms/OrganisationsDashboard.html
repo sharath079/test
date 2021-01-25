@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> Patient App</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="/layouts/xacadpro/plugins/fontawesome-free/css/all.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="/layouts/xacadpro/plugins/daterangepicker/daterangepicker.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="/layouts/xacadpro/dist/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="/layouts/xacadpro/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+        <!-- overlayScrollbars -->
+        <link rel="stylesheet" href="/layouts/xacadpro/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="/layouts/xacadpro/dist/css/adminlte.min.css">
+        <!-- Google Font: Source Sans Pro -->
+        <!--link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"-->
+        <link rel="stylesheet" href="/layouts/xacadpro/css/custom.css">
+        <!-- jQuery -->
+        <script src="/layouts/xacadpro/plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="/layouts/xacadpro/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- InputMask -->
+        <script src="/layouts/xacadpro/plugins/moment/moment.min.js"></script>
+        <script src="/layouts/xacadpro/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+        <!-- date-range-picker -->
+        <script src="/layouts/xacadpro/plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- overlayScrollbars -->
+        <script src="/layouts/xacadpro/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+        <script src="/layouts/xacadpro/plugins/datatables/jquery.dataTables.js"></script>
+        <script src="/layouts/xacadpro/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+        <!-- AdminLTE App -->
+        <script src="/layouts/xacadpro/dist/js/adminlte.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="/layouts/xacadpro/js/themeSidebarUtil.js"></script>
+		
+
+        <script src="/js/variablesUtil.js" type="text/javascript"></script>
+        <script src="/js/fileUploadUtil.js" type="text/javascript"></script>
+        <script src="/js/helperutil.js" type="text/javascript"></script>
+	    <script src="/js/commonUtil.js" type="text/javascript"></script>
+        <script src="/js/forms/Organisations/OrganisationsJSWB.js" type="text/javascript"></script>        
+		<script src="/js/forms/Organisations/OrganisationsJSCustom.js" type="text/javascript"></script>
+		<script src="/js/forms/Organisations/OrganisationsJSExt.js" type="text/javascript"></script>
+		<script src="/js/forms/Organisations/OrganisationsJSBase.js" type="text/javascript"></script>
+        
+		<script>
+		    $(document).ready(function ()
+		    {
+		    	gLayoutType = "XACADProTabbedLinear";
+		    	document.title = "Dashboard - Organisations";
+				initializePanelOnLoadForCreateOrganisations();        
+		    });
+		</script>
+		
+		
+		
+
+		
+		
+		
+    </head>
+    <body class="hold-transition sidebar-mini text-sm          " >
+        <!-- Site wrapper -->
+        <div class="wrapper">
+            <!-- Navbar -->
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom-0  " data-is-main-header="1">
+                <!-- Left navbar links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="/home"><i class="fas fa-bars"></i></a>
+                    </li>
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="/home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="javascript:void(0)" class="nav-link" onclick="userLogout()">Logout</a>
+                    </li>
+                </ul>
+                <!-- SEARCH FORM -->
+                <form class="form-inline ml-3">
+                    <div class="input-group input-group-sm">
+                        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-navbar" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <!-- Right navbar links -->
+                <ul class="navbar-nav ml-auto">
+                </ul>
+            </nav>
+            <!-- /.navbar -->
+            <!-- Main Sidebar Container -->
+            <aside class="main-sidebar sidebar-dark-primary elevation-4" data-is-sidebar="1">
+                <!-- Brand Logo -->
+                <a href="javascript:void(0)" onclick="showModulesMenuPopup()" class="brand-link  navbar-   " data-is-brand-link="1">
+                    <span>&nbsp;&nbsp;</span>
+                    <i class="far fa-circle nav-icon text-success"></i>
+                    <span class="brand-text font-weight-light"> Patient App</span>
+                </a>
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Sidebar user (optional) -->
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="info">
+                            <a href="javascript:void(0)" class="d-block" >
+		                    <span>&nbsp;</span>
+		                    <i class="far fa-circle nav-icon text-info"></i>
+                            <span data-name="loginUserName">Alexander Pierce</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Sidebar Menu -->
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column        " data-widget="treeview" role="menu" data-accordion="false" data-is-nav-sidebar='1'>
+                             <!-- Add icons to the links using the .nav-icon class
+                                 with font-awesome or any other icon font library -->
+																		    <div data-name="moduleMenuDiv" data-module-name="VIS" >
+							
+						</div>
+					    <div data-name="moduleMenuDiv" data-module-name="PatientApp" >
+							
+														
+                            <li class="nav-item" data-element-name="userActionItem" data-privilege-item="ViewEntityDoctor" style="display:none;">
+                                <a data-element-name="userActionItem" data-privilege-item="ViewEntityDoctor" href="/entity/DoctorDashboard.html" data-name="MenuLink" style="display:none;" data-link-type="entity" data-entity-name="Doctor" class="nav-link">
+                                    <i class="far fa-circle nav-icon text-info"></i>
+                                    <p>
+                                        Doctor
+                                    </p>
+                                </a>
+                            </li>
+
+							
+						</div>
+
+
+                        </ul>
+                    </nav>
+                    <!-- /.sidebar-menu -->
+                </div>
+                <!-- /.sidebar -->
+            </aside>
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+								
+
+					            <ul class="nav nav-tabs" role="tablist" id="custom-content-below-tab">
+					              <li class="nav-item">
+					                <a class="nav-link active" id="OrganisationsDashboard-tab" data-toggle="pill" href="#OrganisationsDashboard" role="tab" aria-selected="true">Dashboard</a>
+					              </li>
+					              <li class="nav-item">
+					                <a class="nav-link" id="Organisations-tab" data-toggle="pill" href="#OrganisationsTab" role="tab" aria-selected="true">Organisations</a>
+					              </li>
+									
+					            </ul>
+					            <div class="tab-content" id="custom-content-below-tabContent">
+					              <div class="tab-pane active show " id="OrganisationsDashboard" role="tabpanel">
+									                                <div class="card  card-primary  " style="margin-top:20px;" data-is-card-header="1">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Search Organisations</h3>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body" data-name="organisationsSearchResultsDiv">
+                                        <div class="dataTables_wrapper dt-bootstrap4" data-name="organisationsSearchDiv">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <div class="dataTables_length" id="example1_length">
+                                                        <label>
+                                                            Show 
+                                                            <select name="example1_length" aria-controls="example1" class="custom-select custom-select-sm form-control1 form-control-sm" data-name="rowsPerPage">
+                                                                <option value="1">1</option>
+                                                                <option value="10">10</option>
+                                                                <option value="25">25</option>
+                                                                <option value="50">50</option>
+                                                                <option value="100" selected>100</option>
+                                                            </select>
+                                                            entries
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-8">
+                                                    <div style="float:right;">
+														
+														
+														
+                                                        <button data-element-name="userActionItem" data-privilege-item="DownloadEntityOrganisations" style="display:none;" type="button" class="btn btn-outline-primary   btn-xs    text-sm" onclick="downloadOrganisationsData()" data-is-button='1'>Download</button>
+                                                        <button data-element-name="userActionItem" data-privilege-item="DownloadAllOtherDownloadAllEntities" style="display:none;" type="button" class="btn btn-outline-primary   btn-xs    text-sm" onclick="downloadAllEntities()" data-is-button='1'>Download All</button>
+				                                        <button data-element-name="userActionItem" data-privilege-item="UploadEntityOrganisations" style="display:none;" type="button" class="btn btn-outline-primary   btn-xs    text-sm" onclick="showUploadPoup()" data-is-button='1'>Upload</button>
+				                                        <button data-element-name="userActionItem" data-privilege-item="UploadAllOtherUploadAllEntities" style="display:none;" type="button" class="btn btn-outline-primary   btn-xs    text-sm" onclick="showAllEntitiesUploadPoup()" data-is-button='1'>Upload All</button>
+                                                        <button data-element-name="userActionItem" data-privilege-item="CreateEntityOrganisations" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs    text-sm" data-toggle="modal"  onclick="openOrganisationsCreatePageForNew(this)" data-is-button='1'>+ New</button>
+                                                        <button data-element-name="userActionItem" data-privilege-item="ViewEntityOrganisations" style="display:none;"   type="submit" class="btn btn-outline-primary   btn-xs    text-sm" data-toggle="modal"  onclick="retrieveOrganisationsList()" data-is-button='1'>Search</button>
+                                                    </div>
+                                                </div>
+                                            </div>                                        
+                                            <div class="row" >
+                                                <div class="col-sm-12">
+                                                    <table class="table table-bordered table-hover table-responsive"  style="display:table;">
+                                                        <thead>
+                                                            <tr style="cursor: pointer;">
+		                                                        <th>
+		                                                            <div class="form-group">
+		                                                                <label >Sl.No</label>
+		                                                                <input type="text" class="form-control" readonly="true"/>
+		                                                            </div>
+		                                                        </th>
+		                                                        
+		                                                        		                                                        
+		                                                        <!--Input-->
+		                                                        <th>
+		                                                            <div class="form-group">
+		                                                                <label >Company Name</label>
+																		
+		                                                            </div>
+		                                                        </th>
+		                                                        
+		                                                        <!--Input-->
+		                                                        <th>
+		                                                            <div class="form-group">
+		                                                                <label >Address Line1</label>
+																		
+		                                                            </div>
+		                                                        </th>
+		                                                        
+		                                                        <!--Input-->
+		                                                        <th>
+		                                                            <div class="form-group">
+		                                                                <label >Address Line2</label>
+																		
+		                                                            </div>
+		                                                        </th>
+		                                                        
+		                                                        <!--Combo-->
+		                                                        <th>
+		                                                            <div class="form-group">
+		                                                                <label >City</label>
+																		
+		                                                            </div>
+		                                                        </th>
+		                                                        
+		                                                        <!--Combo-->
+		                                                        <th>
+		                                                            <div class="form-group">
+		                                                                <label >Resident State</label>
+																		
+		                                                            </div>
+		                                                        </th>
+
+		                                                        <th style="display:none;">
+		                                                        Status
+		                                                        </th> 
+		                                                        <th style="display:none;">
+		                                                        Action
+		                                                        </th> 
+		                                                        <th style="display:none;">
+		                                                        Reject
+		                                                        </th> 
+																
+																
+																
+																
+		                                                        <th>
+		                                                        </th> 
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody data-name="organisationsSearchResults">
+															<tr style="cursor: pointer; display:none" data-name="organisationsRow"  >
+															<td data-name="recordNo">
+															</td>
+	                                                        
+																														<td>
+															<p data-name="Organisations_organisationName"></p>
+															</td>
+															<td>
+															<p data-name="Organisations_addressLine1"></p>
+															</td>
+															<td>
+															<p data-name="Organisations_addressLine2"></p>
+															</td>
+															<td>
+															<p data-name="Organisations_city"></p>
+															</td>
+															<td>
+															<p data-name="Organisations_residentState"></p>
+															</td>
+
+															<td data-name="organisationsVwTxnStatus" style="display:none;">
+															</td>
+															<td data-name="organisationsRowActionButtonDiv" style="display:none;">
+															
+															
+															<button type="submit" class="btn btn-outline-primary btn-sm" data-is-search-result="1" data-name="organisationsActionButton" onclick="executeAuthorisationOnOrganisations(this, {'isSearchResult':1})" ></button>
+															
+															</td>
+															<td style="display:none;">
+																<button type="submit"  style="display: none" class="btn btn-outline-primary btn-sm" data-is-search-result="1"  data-name="organisationsRejectButton" onclick="executeAuthorisationOnOrganisations(this, {'isSearchResult':1, 'currentAction':'REJECT'})" >Reject</button>
+															</td>
+															
+															
+															
+															
+															<td>
+															<a data-element-name="userActionItem" data-privilege-item="ViewEntityOrganisations"   style="display:none;" href="javascript:void(0);" onclick="openViewPageForOrganisationsForEdit(this)" data-toggle="tooltip" data-placement="top" title="Edit"><img src="/images/edit.png" style="width:15px; height: 15px;"/></a>&nbsp;
+															<a data-element-name="userActionItem" data-privilege-item="DeleteEntityOrganisations" style="display:none;" href="javascript:void(0);" onclick="deleteThisOrganisations(this)" data-toggle="tooltip" data-placement="top" title="Delete"><img src="/images/delete.png" style="width:15px; height: 15px;"/></a>&nbsp;
+															</td>
+															</tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>                                        
+                                            <div class="row" data-name="recordCountAndPaginationBlock" style="display: none">
+                                                <div class="col-sm-12 col-md-5" data-name="recordsCountDiv">
+                                                    <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">
+													Showing <span data-name="startingRecordNo">0</span> to <span data-name="endingRecordNo">0</span> of <span data-name="totalRecordsCount">0</span> <span data-name="searchResultsEntityName">entries</span>                                                    
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-7">
+                                                    <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                                                        <ul class="pagination" style="display:none;" data-name="paginationUl" data-selected-index="1">
+				                                            <li class="paginate_button page-item previous" data-name="paginationPreviousLinkLi" data-is-previous="0" onclick="showPreviousOrganisationsRecords(this);">
+				                                                <a href="javascript:void(0)" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+				                                            </li>
+															<li data-name="paginationLi" class="paginate_button page-item "  >
+															<a href="javascript:void(0);" class="page-link" onkeyup="showPrevOrNextSearchOrganisationsResults(event, this)" onfocus="showCurrentPageOrganisationsRecords(this);" data-name="paginationLiLink" >1</a>
+															</li>
+															<li data-name="paginationNextLinkLi" class="paginate_button page-item next" >
+																<a href="javascript:void(0);" aria-label="Next" class="page-link" data-is-next="0" onclick="showNextRecords(this);">
+																	Next
+																</a>
+															</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+
+					              </div>
+					              <div class="tab-pane fade" id="OrganisationsTab" role="tabpanel">
+								                                    <div class="card  card-primary  " style="margin-top:20px;" data-is-card-header="1">
+                                    <div class="card-header">
+                                        <h3 class="card-title" >
+											Organisations                                            
+                                        </h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-md-12" style="clear:both;">
+                                            <div style="float:right;" id="actionButtonsDivForOrganisations">
+		                                        
+                                                <div  data-name="organisationsActionButtonDiv" style="display:inline;">
+                                                </div>
+					                        	<div data-name="organisationsCreateFormButtonsDiv" style="display: inline">
+												
+												
+	                                                <button data-element-name="userActionItem" data-privilege-item="CreateEntityOrganisations" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs  text-sm" onclick="createOrganisations()" data-is-button='1'>Save</button>
+	                                                <button data-element-name="userActionItem" data-privilege-item="CreateEntityOrganisations" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs  text-sm" onclick="fetchOrganisationsTestData()" data-is-button='1'>Test Data</button>
+																								
+					                        	</div>
+					                        	<div data-name="organisationsViewFormButtonsDiv" style="display: none">
+												
+												
+												
+												
+												
+	                                                <button type="submit" data-element-name="userActionItem" data-privilege-item="CreateEntityOrganisations" style="display:none;" class="btn btn-outline-primary   btn-xs  text-sm" onclick="resetFormForOrganisations()" data-is-button='1'>New</button>
+	                                                <button type="submit" data-element-name="userActionItem" data-privilege-item="UpdateEntityOrganisations" style="display:none;" class="btn btn-outline-primary   btn-xs  text-sm" onclick="updateOrganisations()" data-is-button='1'>Update</button>
+	                                                <button type="submit" data-element-name="userActionItem" data-privilege-item="DeleteEntityOrganisations" style="display:none;" class="btn btn-outline-danger   btn-xs  text-sm" onclick="deleteOrganisations()" data-is-button='1'>Delete</button>
+																								
+	                                                
+					                        	</div>
+		                                        
+                                            </div>
+                                        </div>
+                                        <div style="clear:both;">
+                                        </div>
+									<div class="row">
+										
+										
+										
+                                        <div class="col-md-6" data-name="OrganisationsContent">
+                                            <div class="form-group" style="display: none">
+                                                <label>Id</label>
+                                                <input type="text"  class="form-control" id="idValueForOrganisations" readonly="true" />
+                                            </div>
+                                            											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="Organisations_organisationName"  >Company Name*</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="Organisations_organisationName"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="Organisations_addressLine1"  >Address Line1*</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="Organisations_addressLine1"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="Organisations_addressLine2"  >Address Line2</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="Organisations_addressLine2"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+                                                <label class="col-sm-4 col-form-label" for="Organisations_city" >City*</label>
+												<div class="col-sm-8">
+	                                                <select class="form-control" id="Organisations_city" onchange="selectOptionChangedForOrganisations('city')"   >
+	                                                    
+	                                                    
+	                                                    
+	                                                    <option value=""></option>
+	                                                    
+	                                                    <option value="Hyd">Hyd</option>
+	                                                    
+	                                                    <option value="Mmmbai">Mmmbai</option>
+	                                                    
+	                                                    
+	                                                </select>
+		                                        </div>
+                                            </div>
+											
+									        <div class="form-group row"> 
+                                                <label class="col-sm-4 col-form-label" for="Organisations_residentState" >Resident State*</label>
+												<div class="col-sm-8">
+	                                                <select class="form-control" id="Organisations_residentState" onchange="selectOptionChangedForOrganisations('residentState')"   >
+	                                                    
+	                                                </select>
+		                                        </div>
+                                            </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="Organisations_pinCode"  >Pin Code*</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="Organisations_pinCode"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="Organisations_databaseName"  >Database Name*</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="Organisations_databaseName"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+                                                <label class="col-sm-4 col-form-label" for="Organisations_country" >Country*</label>
+												<div class="col-sm-8">
+	                                                <select class="form-control" id="Organisations_country" onchange="selectOptionChangedForOrganisations('country')"   >
+	                                                    
+	                                                    
+	                                                    
+	                                                    <option value=""></option>
+	                                                    
+	                                                    <option value="US">US</option>
+	                                                    
+	                                                    <option value="UK">UK</option>
+	                                                    
+	                                                    <option value="Ind">Ind</option>
+	                                                    
+	                                                    
+	                                                </select>
+		                                        </div>
+                                            </div>
+
+                                        </div>
+									<!--div class="row"-->
+                                    </div>
+                                    </div>
+                                     <!--.card--> 
+                                </div>
+
+					              </div>
+								
+					            </div>
+
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- ./row -->
+                    </div><!-- /.container-fluid -->
+                </section>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer " data-is-main-footer='1'>
+                <div class="float-right d-none d-sm-block">
+                    <b></b>
+                </div>
+                <strong>Copyright &copy; <a href="http://harivaratechsol.com">Harivara Technology Solutions</a>.</strong> All rights
+                reserved.
+            </footer>
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark" style="top: 57px; height: 225px; display: none;">
+                <!-- Control sidebar content goes here -->
+            </aside>  <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+		
+
+    <div data-name="popupsDiv">
+		
+		
+        
+		
+		
+		
+		
+		<div class="modal" data-name="fileUploadPopup"
+			onkeyup="Javascript: if (event.keyCode == 27)
+            closeThisPopupOnEscape(this)"
+			style="display: none; background: rgba(0, 0, 0, 0.7); overflow: auto;">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content" style="border-top: 3px solid #007bff;">
+					<div class="modal-header">
+						<h4 class="modal-title">Upload Organisations</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close" onclick="closeThisPopup(this)">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="card  card-primary  " style="margin-top: 20px;"
+							data-is-card-header="1">
+							<div class="card-header">
+								<h3 class="card-title">Upload Organisations</h3>
+							</div>
+							<div class="card-body">
+                                            <div data-name="fileUploadDivElement" data-callback-function-name="setUploadDataInputFiles">
+										        <div class="form-group row"> 
+	                                                <label class="col-sm-4 col-form-label" >Input Files Zip</label>
+													<div class="col-sm-8">
+		                                                <div class="input-group">
+		                                                    <div class="custom-file" data-name="formDiv">
+		                                                        <input type="file" class="custom-file-input" data-name="upoadDataInputFilesZip" name="uploadInputFile" />
+		                                                        <label class="custom-file-label" for="exampleInputFile">Select Input Files Zip</label>
+																<span class="invalid-feedback">Select Custom Files Zip</span>
+		                                                    </div>
+		                                                    <div class="input-group-append">
+		                                                        <span class="input-group-text" id="" onclick="uploadFile(event, this)">Upload</span>
+		                                                    </div>
+															<span style="width: 100%; font-size: 80%; color: darkgray; text-align: left">* Click upload button after selecting input files zip</span>
+		                                                </div>
+			                                            <div class="input-group" data-name="fileUploadSuccessMessageDiv" style="display: none;">
+															<span style="width: 100%; font-size: 85%; color: cornflowerblue; text-align: left">Input Files Zip Uploaded Successfully</span>
+										                </div>
+			                                        </div>
+	                                            </div>
+							                </div>
+								<div class="col-xs-12" data-name="fileUploadDivElement" data-object-type="Organisations" data-callback-function-name="uploadOrganisationsData" >
+					                <div class="form-group">
+					                    <label  class="col-sm-4 control-label" >File Attachments</label>
+					                    <div class="col-sm-8 form-control-static" data-name="formDiv">
+					                        <input type="file" name="uploadInputFile" />
+					                    </div>
+					                </div>
+					                <div class="form-group" data-name="uploadedFilesDiv" style="display: none;">
+					                    <label  class="col-sm-4 control-label" >&nbsp;</label>
+					                    <div class="col-sm-8 form-control-static" data-name="fileUploadMessageElement" data-upload-one-file=0>
+					                         file uploads list
+					                    </div>
+					                </div>
+		                            <div class="form-group form-check">
+		                                <input type="checkbox" class="form-check-input" data-name="areSourceDestinationSame" />
+		                                <label class="form-check-label" >Same Source Destination</label>
+		                            </div>
+					                <div class="form-group" data-name="uploadButtonDiv">
+					                    <div class="col-sm-offset-4 col-sm-8">
+					                        <button type="button" class="btn btn-sm  btn-default btn-primary" onclick="uploadFile(event, this)">Upload File</button>
+		                                     </br><a href="" class="card-link" data-name="uploadResultsLink" style="display: none" target="_blank">Show Upload Results</a>
+					                    </div>
+					                </div>
+								</div>
+								<div style="clear: both;"></div>
+							</div>
+							<!--.card-->
+						</div>
+					</div>
+					<div class="modal-footer" style="float: right;">
+						<button type="button" class="btn btn-outline-primary btn-sm"
+							onclick="closeThisPopup(this)">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal" data-name="allEntitiesUploadPopup"
+			onkeyup="Javascript: if (event.keyCode == 27)
+            closeThisPopupOnEscape(this)"
+			style="display: none; background: rgba(0, 0, 0, 0.7); overflow: auto;">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content" style="border-top: 3px solid #007bff;">
+					<div class="modal-header">
+						<h4 class="modal-title">Upload Data</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close" onclick="closeThisPopup(this)">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="card  card-primary  " style="margin-top: 20px;"
+							data-is-card-header="1">
+							<div class="card-header">
+								<h3 class="card-title">Upload Data</h3>
+							</div>
+							<div class="card-body">
+                                            <div data-name="fileUploadDivElement" data-callback-function-name="setUploadDataInputFiles">
+										        <div class="form-group row"> 
+	                                                <label class="col-sm-4 col-form-label" >Input Files Zip</label>
+													<div class="col-sm-8">
+		                                                <div class="input-group">
+		                                                    <div class="custom-file" data-name="formDiv">
+		                                                        <input type="file" class="custom-file-input" data-name="upoadDataInputFilesZip" name="uploadInputFile" />
+		                                                        <label class="custom-file-label" for="exampleInputFile">Select Input Files Zip</label>
+																<span class="invalid-feedback">Select Custom Files Zip</span>
+		                                                    </div>
+		                                                    <div class="input-group-append">
+		                                                        <span class="input-group-text" id="" onclick="uploadFile(event, this)">Upload</span>
+		                                                    </div>
+															<span style="width: 100%; font-size: 80%; color: darkgray; text-align: left">* Click upload button after selecting input files zip</span>
+		                                                </div>
+			                                            <div class="input-group" data-name="fileUploadSuccessMessageDiv" style="display: none;">
+															<span style="width: 100%; font-size: 85%; color: cornflowerblue; text-align: left">Input Files Zip Uploaded Successfully</span>
+										                </div>
+			                                        </div>
+	                                            </div>
+							                </div>
+								<div class="col-xs-12" data-name="fileUploadDivElement" data-object-type="Organisations" data-callback-function-name="uploadAllEntities" >
+					                <div class="form-group">
+					                    <label  class="col-sm-4 control-label" >File Attachments</label>
+					                    <div class="col-sm-8 form-control-static" data-name="formDiv">
+					                        <input type="file" name="uploadInputFile" />
+					                    </div>
+					                </div>
+					                <div class="form-group" data-name="uploadedFilesDiv" style="display: none;">
+					                    <label  class="col-sm-4 control-label" >&nbsp;</label>
+					                    <div class="col-sm-8 form-control-static" data-name="fileUploadMessageElement" data-upload-one-file=0>
+					                         file uploads list
+					                    </div>
+					                </div>
+		                            <div class="form-group form-check">
+		                                <input type="checkbox" class="form-check-input" data-name="areSourceDestinationSame" />
+		                                <label class="form-check-label" >Same Source Destination</label>
+		                            </div>
+					                <div class="form-group" data-name="uploadButtonDiv">
+					                    <div class="col-sm-offset-4 col-sm-8">
+					                        <button type="button" class="btn btn-sm  btn-default btn-primary" onclick="uploadFile(event, this)">Upload File</button>
+		                                     </br><a href="" class="card-link" data-name="uploadResultsLink" style="display: none" target="_blank">Show Upload Results</a>
+					                    </div>
+					                </div>
+								</div>
+								<div style="clear: both;"></div>
+							</div>
+							<!--.card-->
+						</div>
+					</div>
+					<div class="modal-footer" style="float: right;">
+						<button type="button" class="btn btn-outline-primary btn-sm"
+							onclick="closeThisPopup(this)">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+
+    </body>
+</html>
+
+
+
+

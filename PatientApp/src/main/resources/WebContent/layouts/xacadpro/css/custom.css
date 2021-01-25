@@ -1,0 +1,56 @@
+[data-letters]:before {
+  content:attr(data-letters);
+  display:inline-block;
+  font-size:1em;
+  width:1.5em;
+  height:1.5em;
+  line-height:1.5em;
+  text-align:center;
+  border-radius:50%;
+  background:white;
+  vertical-align:middle;
+  margin-right:1em;
+  color:black;
+  }
+
+  
+.containerDropDown{ display:none; border:#acacac solid 1px; margin: 0;
+                 border-top:none; width:100%; background-color:#FFF; box-shadow:0 3px 6px rgba(0,0,0,0.2);z-index:200;}
+.containerDropDown ul{list-style-type:none; min-height:50px; max-height:245px; overflow:auto;}
+.containerDropDown ul li{display:block; padding-left:10px; padding-right:10px; line-height:30px;
+                        cursor:pointer;transition: 0.5s; -moz-transition: 0.5s}
+.containerDropDown ul li:hover{padding-left:20px; transition: 0.5s; -moz-transition: 0.5s}
+  
+  
+  
+.text-sm .card-title {
+  font-size: 0.9rem;
+}
+
+.card-header {
+  padding: 4px;
+}
+
+.table th,
+.table td {
+  padding: 0.25rem;
+}
+  
+.form-control {
+  height: auto;
+  padding: 0px;
+}
+  
+  
+.spinner-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.3);
+    transition: opacity 500ms;
+    overflow: auto;
+    z-index: 100;
+}
+  

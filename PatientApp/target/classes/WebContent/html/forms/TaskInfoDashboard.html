@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> Patient App</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="/layouts/xacadpro/plugins/fontawesome-free/css/all.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="/layouts/xacadpro/plugins/daterangepicker/daterangepicker.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="/layouts/xacadpro/dist/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="/layouts/xacadpro/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+        <!-- overlayScrollbars -->
+        <link rel="stylesheet" href="/layouts/xacadpro/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="/layouts/xacadpro/dist/css/adminlte.min.css">
+        <!-- Google Font: Source Sans Pro -->
+        <!--link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"-->
+        <link rel="stylesheet" href="/layouts/xacadpro/css/custom.css">
+        <!-- jQuery -->
+        <script src="/layouts/xacadpro/plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="/layouts/xacadpro/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- InputMask -->
+        <script src="/layouts/xacadpro/plugins/moment/moment.min.js"></script>
+        <script src="/layouts/xacadpro/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+        <!-- date-range-picker -->
+        <script src="/layouts/xacadpro/plugins/daterangepicker/daterangepicker.js"></script>
+        <!-- overlayScrollbars -->
+        <script src="/layouts/xacadpro/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+        <script src="/layouts/xacadpro/plugins/datatables/jquery.dataTables.js"></script>
+        <script src="/layouts/xacadpro/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+        <!-- AdminLTE App -->
+        <script src="/layouts/xacadpro/dist/js/adminlte.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="/layouts/xacadpro/js/themeSidebarUtil.js"></script>
+		
+
+        <script src="/js/variablesUtil.js" type="text/javascript"></script>
+        <script src="/js/fileUploadUtil.js" type="text/javascript"></script>
+        <script src="/js/helperutil.js" type="text/javascript"></script>
+	    <script src="/js/commonUtil.js" type="text/javascript"></script>
+        <script src="/js/forms/TaskInfo/TaskInfoJSWB.js" type="text/javascript"></script>        
+		<script src="/js/forms/TaskInfo/TaskInfoJSCustom.js" type="text/javascript"></script>
+		<script src="/js/forms/TaskInfo/TaskInfoJSExt.js" type="text/javascript"></script>
+		<script src="/js/forms/TaskInfo/TaskInfoJSBase.js" type="text/javascript"></script>
+        
+		<script src="/js/forms/TaskExecutionInfo/TaskExecutionInfoJSCustom.js" type="text/javascript"></script>
+		<script src="/js/forms/TaskExecutionInfo/TaskExecutionInfoJSExt.js" type="text/javascript"></script>
+		<script src="/js/forms/TaskExecutionInfo/TaskExecutionInfoJSBase.js" type="text/javascript"></script>
+        
+		<script src="/js/forms/TaskLayoutParameters/TaskLayoutParametersJSCustom.js" type="text/javascript"></script>
+		<script src="/js/forms/TaskLayoutParameters/TaskLayoutParametersJSExt.js" type="text/javascript"></script>
+		<script src="/js/forms/TaskLayoutParameters/TaskLayoutParametersJSBase.js" type="text/javascript"></script>
+        
+		<script src="/js/forms/EmailAttachmentLayout/EmailAttachmentLayoutJSCustom.js" type="text/javascript"></script>
+		<script src="/js/forms/EmailAttachmentLayout/EmailAttachmentLayoutJSExt.js" type="text/javascript"></script>
+		<script src="/js/forms/EmailAttachmentLayout/EmailAttachmentLayoutJSBase.js" type="text/javascript"></script>
+        
+		<script>
+		    $(document).ready(function ()
+		    {
+		    	gLayoutType = "XACADProTabbedLinear";
+		    	document.title = "Dashboard - TaskInfo";
+				initializePanelOnLoadForCreateTaskInfo();        
+		    });
+		</script>
+		
+		
+		
+
+		
+		
+		
+    </head>
+    <body class="hold-transition sidebar-mini text-sm          " >
+        <!-- Site wrapper -->
+        <div class="wrapper">
+            <!-- Navbar -->
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom-0  " data-is-main-header="1">
+                <!-- Left navbar links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="/home"><i class="fas fa-bars"></i></a>
+                    </li>
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="/home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="javascript:void(0)" class="nav-link" onclick="userLogout()">Logout</a>
+                    </li>
+                </ul>
+                <!-- SEARCH FORM -->
+                <form class="form-inline ml-3">
+                    <div class="input-group input-group-sm">
+                        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-navbar" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <!-- Right navbar links -->
+                <ul class="navbar-nav ml-auto">
+                </ul>
+            </nav>
+            <!-- /.navbar -->
+            <!-- Main Sidebar Container -->
+            <aside class="main-sidebar sidebar-dark-primary elevation-4" data-is-sidebar="1">
+                <!-- Brand Logo -->
+                <a href="javascript:void(0)" onclick="showModulesMenuPopup()" class="brand-link  navbar-   " data-is-brand-link="1">
+                    <span>&nbsp;&nbsp;</span>
+                    <i class="far fa-circle nav-icon text-success"></i>
+                    <span class="brand-text font-weight-light"> Patient App</span>
+                </a>
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Sidebar user (optional) -->
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        <div class="info">
+                            <a href="javascript:void(0)" class="d-block" >
+		                    <span>&nbsp;</span>
+		                    <i class="far fa-circle nav-icon text-info"></i>
+                            <span data-name="loginUserName">Alexander Pierce</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Sidebar Menu -->
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column        " data-widget="treeview" role="menu" data-accordion="false" data-is-nav-sidebar='1'>
+                             <!-- Add icons to the links using the .nav-icon class
+                                 with font-awesome or any other icon font library -->
+																		    <div data-name="moduleMenuDiv" data-module-name="VIS" >
+							
+						</div>
+					    <div data-name="moduleMenuDiv" data-module-name="PatientApp" >
+							
+														
+                            <li class="nav-item" data-element-name="userActionItem" data-privilege-item="ViewEntityDoctor" style="display:none;">
+                                <a data-element-name="userActionItem" data-privilege-item="ViewEntityDoctor" href="/entity/DoctorDashboard.html" data-name="MenuLink" style="display:none;" data-link-type="entity" data-entity-name="Doctor" class="nav-link">
+                                    <i class="far fa-circle nav-icon text-info"></i>
+                                    <p>
+                                        Doctor
+                                    </p>
+                                </a>
+                            </li>
+
+							
+						</div>
+
+
+                        </ul>
+                    </nav>
+                    <!-- /.sidebar-menu -->
+                </div>
+                <!-- /.sidebar -->
+            </aside>
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+								
+
+					            <ul class="nav nav-tabs" role="tablist" id="custom-content-below-tab">
+					              <li class="nav-item">
+					                <a class="nav-link active" id="TaskInfoDashboard-tab" data-toggle="pill" href="#TaskInfoDashboard" role="tab" aria-selected="true">Dashboard</a>
+					              </li>
+					              <li class="nav-item">
+					                <a class="nav-link" id="TaskInfo-tab" data-toggle="pill" href="#TaskInfoTab" role="tab" aria-selected="true">TaskInfo</a>
+					              </li>
+														              <li class="nav-item">
+					                <a class="nav-link" id="TaskExecutionInfo-tab" data-toggle="pill" href="#TaskExecutionInfoDashboard" role="tab" aria-selected="true">Task Execution Info</a>
+					              </li>
+					              <li class="nav-item">
+					                <a class="nav-link" id="TaskLayoutParameters-tab" data-toggle="pill" href="#TaskLayoutParametersDashboard" role="tab" aria-selected="true">Task Layout Parameters</a>
+					              </li>
+					              <li class="nav-item">
+					                <a class="nav-link" id="EmailAttachmentLayout-tab" data-toggle="pill" href="#EmailAttachmentLayoutDashboard" role="tab" aria-selected="true">Email Attachment Layout</a>
+					              </li>
+
+					            </ul>
+					            <div class="tab-content" id="custom-content-below-tabContent">
+					              <div class="tab-pane active show " id="TaskInfoDashboard" role="tabpanel">
+									                                <div class="card  card-primary  " style="margin-top:20px;" data-is-card-header="1">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Search TaskInfo</h3>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body" data-name="taskInfoSearchResultsDiv">
+                                        <div class="dataTables_wrapper dt-bootstrap4" data-name="taskInfoSearchDiv">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-4">
+                                                    <div class="dataTables_length" id="example1_length">
+                                                        <label>
+                                                            Show 
+                                                            <select name="example1_length" aria-controls="example1" class="custom-select custom-select-sm form-control1 form-control-sm" data-name="rowsPerPage">
+                                                                <option value="1">1</option>
+                                                                <option value="10">10</option>
+                                                                <option value="25">25</option>
+                                                                <option value="50">50</option>
+                                                                <option value="100" selected>100</option>
+                                                            </select>
+                                                            entries
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-8">
+                                                    <div style="float:right;">
+														
+														
+														
+                                                        <button data-element-name="userActionItem" data-privilege-item="DownloadEntityTaskInfo" style="display:none;" type="button" class="btn btn-outline-primary   btn-xs    text-sm" onclick="downloadTaskInfoData()" data-is-button='1'>Download</button>
+                                                        <button data-element-name="userActionItem" data-privilege-item="DownloadAllOtherDownloadAllEntities" style="display:none;" type="button" class="btn btn-outline-primary   btn-xs    text-sm" onclick="downloadAllEntities()" data-is-button='1'>Download All</button>
+				                                        <button data-element-name="userActionItem" data-privilege-item="UploadEntityTaskInfo" style="display:none;" type="button" class="btn btn-outline-primary   btn-xs    text-sm" onclick="showUploadPoup()" data-is-button='1'>Upload</button>
+				                                        <button data-element-name="userActionItem" data-privilege-item="UploadAllOtherUploadAllEntities" style="display:none;" type="button" class="btn btn-outline-primary   btn-xs    text-sm" onclick="showAllEntitiesUploadPoup()" data-is-button='1'>Upload All</button>
+                                                        <button data-element-name="userActionItem" data-privilege-item="CreateEntityTaskInfo" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs    text-sm" data-toggle="modal"  onclick="openTaskInfoCreatePageForNew(this)" data-is-button='1'>+ New</button>
+                                                        <button data-element-name="userActionItem" data-privilege-item="ViewEntityTaskInfo" style="display:none;"   type="submit" class="btn btn-outline-primary   btn-xs    text-sm" data-toggle="modal"  onclick="retrieveTaskInfoList()" data-is-button='1'>Search</button>
+                                                    </div>
+                                                </div>
+                                            </div>                                        
+                                            <div class="row" >
+                                                <div class="col-sm-12">
+                                                    <table class="table table-bordered table-hover table-responsive"  style="display:table;">
+                                                        <thead>
+                                                            <tr style="cursor: pointer;">
+		                                                        <th>
+		                                                            <div class="form-group">
+		                                                                <label >Sl.No</label>
+		                                                                <input type="text" class="form-control" readonly="true"/>
+		                                                            </div>
+		                                                        </th>
+		                                                        
+		                                                        		                                                        
+		                                                        <!--Input-->
+		                                                        <th>
+		                                                            <div class="form-group">
+		                                                                <label >Task Name</label>
+																		
+		                                                            </div>
+		                                                        </th>
+		                                                        
+		                                                        <!--Input-->
+		                                                        <th>
+		                                                            <div class="form-group">
+		                                                                <label >Task Description</label>
+																		
+		                                                            </div>
+		                                                        </th>
+		                                                        
+		                                                        <!--Combo-->
+		                                                        <th>
+		                                                            <div class="form-group">
+		                                                                <label >Task Type</label>
+																		
+		                                                            </div>
+		                                                        </th>
+		                                                        
+		                                                        <!--Input-->
+		                                                        <th>
+		                                                            <div class="form-group">
+		                                                                <label >API Name</label>
+																		
+		                                                            </div>
+		                                                        </th>
+		                                                        
+		                                                        <!--Input-->
+		                                                        <th>
+		                                                            <div class="form-group">
+		                                                                <label >Target Entity Query</label>
+																		
+		                                                            </div>
+		                                                        </th>
+
+		                                                        <th style="display:none;">
+		                                                        Status
+		                                                        </th> 
+		                                                        <th style="display:none;">
+		                                                        Action
+		                                                        </th> 
+		                                                        <th style="display:none;">
+		                                                        Reject
+		                                                        </th> 
+																
+																
+																
+																
+		                                                        <th>
+		                                                        </th> 
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody data-name="taskInfoSearchResults">
+															<tr style="cursor: pointer; display:none" data-name="taskInfoRow"  >
+															<td data-name="recordNo">
+															</td>
+	                                                        
+																														<td>
+															<p data-name="TaskInfo_taskName"></p>
+															</td>
+															<td>
+															<p data-name="TaskInfo_taskDescription"></p>
+															</td>
+															<td>
+															<p data-name="TaskInfo_taskType"></p>
+															</td>
+															<td>
+															<p data-name="TaskInfo_apiName"></p>
+															</td>
+															<td>
+															<p data-name="TaskInfo_targetEntityQuery"></p>
+															</td>
+
+															<td data-name="taskInfoVwTxnStatus" style="display:none;">
+															</td>
+															<td data-name="taskInfoRowActionButtonDiv" style="display:none;">
+															
+															
+															<button type="submit" class="btn btn-outline-primary btn-sm" data-is-search-result="1" data-name="taskInfoActionButton" onclick="executeAuthorisationOnTaskInfo(this, {'isSearchResult':1})" ></button>
+															
+															</td>
+															<td style="display:none;">
+																<button type="submit"  style="display: none" class="btn btn-outline-primary btn-sm" data-is-search-result="1"  data-name="taskInfoRejectButton" onclick="executeAuthorisationOnTaskInfo(this, {'isSearchResult':1, 'currentAction':'REJECT'})" >Reject</button>
+															</td>
+															
+															
+															
+															
+															<td>
+															<a data-element-name="userActionItem" data-privilege-item="ViewEntityTaskInfo"   style="display:none;" href="javascript:void(0);" onclick="openViewPageForTaskInfoForEdit(this)" data-toggle="tooltip" data-placement="top" title="Edit"><img src="/images/edit.png" style="width:15px; height: 15px;"/></a>&nbsp;
+															<a data-element-name="userActionItem" data-privilege-item="DeleteEntityTaskInfo" style="display:none;" href="javascript:void(0);" onclick="deleteThisTaskInfo(this)" data-toggle="tooltip" data-placement="top" title="Delete"><img src="/images/delete.png" style="width:15px; height: 15px;"/></a>&nbsp;
+															</td>
+															</tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>                                        
+                                            <div class="row" data-name="recordCountAndPaginationBlock" style="display: none">
+                                                <div class="col-sm-12 col-md-5" data-name="recordsCountDiv">
+                                                    <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">
+													Showing <span data-name="startingRecordNo">0</span> to <span data-name="endingRecordNo">0</span> of <span data-name="totalRecordsCount">0</span> <span data-name="searchResultsEntityName">entries</span>                                                    
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-7">
+                                                    <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                                                        <ul class="pagination" style="display:none;" data-name="paginationUl" data-selected-index="1">
+				                                            <li class="paginate_button page-item previous" data-name="paginationPreviousLinkLi" data-is-previous="0" onclick="showPreviousTaskInfoRecords(this);">
+				                                                <a href="javascript:void(0)" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+				                                            </li>
+															<li data-name="paginationLi" class="paginate_button page-item "  >
+															<a href="javascript:void(0);" class="page-link" onkeyup="showPrevOrNextSearchTaskInfoResults(event, this)" onfocus="showCurrentPageTaskInfoRecords(this);" data-name="paginationLiLink" >1</a>
+															</li>
+															<li data-name="paginationNextLinkLi" class="paginate_button page-item next" >
+																<a href="javascript:void(0);" aria-label="Next" class="page-link" data-is-next="0" onclick="showNextRecords(this);">
+																	Next
+																</a>
+															</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+
+					              </div>
+					              <div class="tab-pane fade" id="TaskInfoTab" role="tabpanel">
+								                                    <div class="card  card-primary  " style="margin-top:20px;" data-is-card-header="1">
+                                    <div class="card-header">
+                                        <h3 class="card-title" >
+											TaskInfo                                            
+                                        </h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-md-12" style="clear:both;">
+                                            <div style="float:right;" id="actionButtonsDivForTaskInfo">
+		                                        
+                                                <div  data-name="taskInfoActionButtonDiv" style="display:inline;">
+                                                </div>
+					                        	<div data-name="taskInfoCreateFormButtonsDiv" style="display: inline">
+												
+												
+	                                                <button data-element-name="userActionItem" data-privilege-item="CreateEntityTaskInfo" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs  text-sm" onclick="createTaskInfo()" data-is-button='1'>Save</button>
+	                                                <button data-element-name="userActionItem" data-privilege-item="CreateEntityTaskInfo" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs  text-sm" onclick="fetchTaskInfoTestData()" data-is-button='1'>Test Data</button>
+																								
+					                        	</div>
+					                        	<div data-name="taskInfoViewFormButtonsDiv" style="display: none">
+												
+												
+												
+												
+												
+	                                                <button type="submit" data-element-name="userActionItem" data-privilege-item="CreateEntityTaskInfo" style="display:none;" class="btn btn-outline-primary   btn-xs  text-sm" onclick="resetFormForTaskInfo()" data-is-button='1'>New</button>
+	                                                <button type="submit" data-element-name="userActionItem" data-privilege-item="UpdateEntityTaskInfo" style="display:none;" class="btn btn-outline-primary   btn-xs  text-sm" onclick="updateTaskInfo()" data-is-button='1'>Update</button>
+	                                                <button type="submit" data-element-name="userActionItem" data-privilege-item="DeleteEntityTaskInfo" style="display:none;" class="btn btn-outline-danger   btn-xs  text-sm" onclick="deleteTaskInfo()" data-is-button='1'>Delete</button>
+																								
+	                                                
+					                        	</div>
+		                                        
+                                            </div>
+                                        </div>
+                                        <div style="clear:both;">
+                                        </div>
+									<div class="row">
+										
+										
+										
+                                        <div class="col-md-6" data-name="TaskInfoContent">
+                                            <div class="form-group" style="display: none">
+                                                <label>Id</label>
+                                                <input type="text"  class="form-control" id="idValueForTaskInfo" readonly="true" />
+                                            </div>
+                                            											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_taskName"  >Task Name*</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_taskName"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_taskDescription"  >Task Description</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_taskDescription"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+                                                <label class="col-sm-4 col-form-label" for="TaskInfo_taskType" >Task Type*</label>
+												<div class="col-sm-8">
+	                                                <select class="form-control" id="TaskInfo_taskType" onchange="selectOptionChangedForTaskInfo('taskType')"   >
+	                                                    
+	                                                    
+	                                                    
+	                                                    <option value=""></option>
+	                                                    
+	                                                    <option value="Notification">Notification</option>
+	                                                    
+	                                                    <option value="APICall">APICall</option>
+	                                                    
+	                                                    
+	                                                </select>
+		                                        </div>
+                                            </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_apiName"  >API Name</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_apiName"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_targetEntityQuery"  >Target Entity Query</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_targetEntityQuery"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_targetUserIdColumnAlias"  >Target User Id Column Alias</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_targetUserIdColumnAlias"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_targetEntityIdColumnAlias"  >Target Entity Id Column Alias</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_targetEntityIdColumnAlias"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+                                                <label class="col-sm-4 col-form-label" for="TaskInfo_enableInAppNotification" >Enable In App Notification</label>
+												<div class="col-sm-8">
+	                                                <select class="form-control" id="TaskInfo_enableInAppNotification" onchange="selectOptionChangedForTaskInfo('enableInAppNotification')"   >
+	                                                    
+	                                                    
+	                                                    
+	                                                    <option value=""></option>
+	                                                    
+	                                                    <option value="Yes">Yes</option>
+	                                                    
+	                                                    <option value="No">No</option>
+	                                                    
+	                                                    
+	                                                </select>
+		                                        </div>
+                                            </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_inAppNotificationLayout"  >InApp Notification Layout</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_inAppNotificationLayout"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+                                                <label class="col-sm-4 col-form-label" for="TaskInfo_enableEmailNotification" >Enable Email Notification</label>
+												<div class="col-sm-8">
+	                                                <select class="form-control" id="TaskInfo_enableEmailNotification" onchange="selectOptionChangedForTaskInfo('enableEmailNotification')"   >
+	                                                    
+	                                                    
+	                                                    
+	                                                    <option value=""></option>
+	                                                    
+	                                                    <option value="Yes">Yes</option>
+	                                                    
+	                                                    <option value="No">No</option>
+	                                                    
+	                                                    
+	                                                </select>
+		                                        </div>
+                                            </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_emailColumnAlias"  >Email Column Alias</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_emailColumnAlias"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_emailNotificationLayout"  >Email Notifaction Layout</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_emailNotificationLayout"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_emailSubject"  >Email Subject</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_emailSubject"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+                                                <label class="col-sm-4 col-form-label" for="TaskInfo_enableSmsNotification" >EnableSms Notification </label>
+												<div class="col-sm-8">
+	                                                <select class="form-control" id="TaskInfo_enableSmsNotification" onchange="selectOptionChangedForTaskInfo('enableSmsNotification')"   >
+	                                                    
+	                                                    
+	                                                    
+	                                                    <option value=""></option>
+	                                                    
+	                                                    <option value="Yes">Yes</option>
+	                                                    
+	                                                    <option value="No">No</option>
+	                                                    
+	                                                    
+	                                                </select>
+		                                        </div>
+                                            </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_smsColumnAlias"  >Sms Column Alias</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_smsColumnAlias"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_smsNotificationLayout"  >Sms Notifaction Layout</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_smsNotificationLayout"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_sMSText"  >SMS Text</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_sMSText"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+                                                <label class="col-sm-4 col-form-label" for="TaskInfo_isActive" >Is Active*</label>
+												<div class="col-sm-8">
+	                                                <select class="form-control" id="TaskInfo_isActive" onchange="selectOptionChangedForTaskInfo('isActive')"   >
+	                                                    
+	                                                    
+	                                                    
+	                                                    <option value=""></option>
+	                                                    
+	                                                    <option value="Yes">Yes</option>
+	                                                    
+	                                                    <option value="No">No</option>
+	                                                    
+	                                                    
+	                                                </select>
+		                                        </div>
+                                            </div>
+											
+											
+									        <div class="form-group row"> 
+                                                <label class="col-sm-4 col-form-label">Task Start Date</label>
+												<div class="col-sm-8">
+	                                                <div class="input-group">
+	                                                    <div class="input-group-prepend">
+	                                                        <span class="input-group-text">
+	                                                            <i class="far fa-calendar-alt"></i>
+	                                                        </span>
+	                                                    </div>
+	                                                    <input type="text" data-name="dateTimeWithSecondsPicker" class="form-control float-right"  id="TaskInfo_taskStartDate" placeholder="DD/MM/YYYY HH:MM:SS"   />
+	                                                </div>
+	                                                <!-- /.input group -->
+		                                        </div>
+                                            </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_taskFrequency"  >Task Frequency*</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_taskFrequency"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+                                                <label class="col-sm-4 col-form-label" for="TaskInfo_taskFrequencyUnit" >Task Frequency Unit*</label>
+												<div class="col-sm-8">
+	                                                <select class="form-control" id="TaskInfo_taskFrequencyUnit" onchange="selectOptionChangedForTaskInfo('taskFrequencyUnit')"   >
+	                                                    
+	                                                    
+	                                                    
+	                                                    <option value=""></option>
+	                                                    
+	                                                    <option value="YEAR">YEAR</option>
+	                                                    
+	                                                    <option value="MONTH">MONTH</option>
+	                                                    
+	                                                    <option value="WEEK">WEEK</option>
+	                                                    
+	                                                    <option value="DAY">DAY</option>
+	                                                    
+	                                                    <option value="HOUR">HOUR</option>
+	                                                    
+	                                                    <option value="MINUTE">MINUTE</option>
+	                                                    
+	                                                    <option value="SECOND">SECOND</option>
+	                                                    
+	                                                    
+	                                                </select>
+		                                        </div>
+                                            </div>
+											
+									        <div class="form-group row"> 
+                                                <label class="col-sm-4 col-form-label" for="TaskInfo_isRecurring" >Is Recurring*</label>
+												<div class="col-sm-8">
+	                                                <select class="form-control" id="TaskInfo_isRecurring" onchange="selectOptionChangedForTaskInfo('isRecurring')"   >
+	                                                    
+	                                                    
+	                                                    
+	                                                    <option value=""></option>
+	                                                    
+	                                                    <option value="Yes">Yes</option>
+	                                                    
+	                                                    <option value="No">No</option>
+	                                                    
+	                                                    
+	                                                </select>
+		                                        </div>
+                                            </div>
+											
+									        <div class="form-group row"> 
+                                                <label class="col-sm-4 col-form-label" for="TaskInfo_firstRunType" >First Run Type*</label>
+												<div class="col-sm-8">
+	                                                <select class="form-control" id="TaskInfo_firstRunType" onchange="selectOptionChangedForTaskInfo('firstRunType')"   >
+	                                                    
+	                                                    
+	                                                    
+	                                                    <option value=""></option>
+	                                                    
+	                                                    <option value="Immediate">Immediate</option>
+	                                                    
+	                                                    <option value="SpecifyDate">SpecifyDate</option>
+	                                                    
+	                                                    <option value="Manual">Manual</option>
+	                                                    
+	                                                    <option value="UseRelativeDate">UseRelativeDate</option>
+	                                                    
+	                                                    
+	                                                </select>
+		                                        </div>
+                                            </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_dateColumnAlias"  >Date Column Alias</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_dateColumnAlias"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+                                                <label class="col-sm-4 col-form-label" for="TaskInfo_firstRunDateCalculationMethod" >First Run Date Calculation Method</label>
+												<div class="col-sm-8">
+	                                                <select class="form-control" id="TaskInfo_firstRunDateCalculationMethod" onchange="selectOptionChangedForTaskInfo('firstRunDateCalculationMethod')"   >
+	                                                    
+	                                                    
+	                                                    
+	                                                    <option value=""></option>
+	                                                    
+	                                                    <option value="FORWARD">FORWARD</option>
+	                                                    
+	                                                    <option value="BACKWARD">BACKWARD</option>
+	                                                    
+	                                                    
+	                                                </select>
+		                                        </div>
+                                            </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_firstRunDateGapInYears"  >First Run Date Gap In Years</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_firstRunDateGapInYears"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_firstRunDateGapInMonths"  >First Run Date Gap In Months</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_firstRunDateGapInMonths"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_firstRunDateGapInDays"  >First Run Date Gap In Days</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_firstRunDateGapInDays"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_firstRunDateGapInHours"  >First Run Date Gap In Hours</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_firstRunDateGapInHours"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_firstRunDateGapInMinutes"  >First Run Date Gap In Minutes</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_firstRunDateGapInMinutes"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskInfo_firstRunDateGapInSeconds"  >First Run Date Gap In Seconds</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskInfo_firstRunDateGapInSeconds"   />
+		                                        </div>
+	                                        </div>
+
+                                        </div>
+									<!--div class="row"-->
+                                    </div>
+                                    </div>
+                                     <!--.card--> 
+                                </div>
+
+					              </div>
+													              <div class="tab-pane fade" id="TaskExecutionInfoDashboard" role="tabpanel">
+								                                    <div class="card card-primary " data-name="TaskExecutionInfoContent" data-is-card-header="1">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Task Execution Info</h3>
+                                    </div>
+                                     <!--.card-header--> 
+                                    <div class="card-body">
+                                        <div class="col-md-12" style="clear:both;">
+                                            <div style="float:right;">
+                                                <button type="submit" data-element-name="userActionItem" data-privilege-item="CreateEntityTaskExecutionInfo" style="display:none;" class="btn btn-outline-primary    btn-xs  text-sm" onclick="showTaskExecutionInfoPopupForNew(this)" data-is-button='1'>+ New</button>
+                                            </div>
+                                        </div>
+                                        <div style="clear:both;margin-bottom: 10px;">
+                                        </div>
+                                        <table id="example3" class="table table-bordered table-hover table-responsive">
+                                            <thead>
+                                                <tr style="cursor: pointer;"> 
+                                                                                                        <th>Task Time Calculation Type</th>
+                                                    <th>First Run Date Calculation Method</th>
+                                                    <th>First Run Date Gap In Years</th>
+                                                    <th>First Run Date Gap In Months</th>
+                                                    <th>First Run Date Gap In Days</th>
+                                                    <th>First Run Date Gap In Hours</th>
+                                                    <th>First Run Date Gap In Minutes</th>
+                                                    <th>First Run Date Gap In Seconds</th>
+
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody data-name="taskExecutionInfoList">
+												<tr style="cursor: pointer; display: none;" data-name="taskExecutionInfoRow"  >
+																								<td data-name="taskTimeCalculationType">
+												</td>
+												<td data-name="firstRunDateCalculationMethod">
+												</td>
+												<td data-name="firstRunDateGapInYears">
+												</td>
+												<td data-name="firstRunDateGapInMonths">
+												</td>
+												<td data-name="firstRunDateGapInDays">
+												</td>
+												<td data-name="firstRunDateGapInHours">
+												</td>
+												<td data-name="firstRunDateGapInMinutes">
+												</td>
+												<td data-name="firstRunDateGapInSeconds">
+												</td>
+
+												<td>
+												<a href="javascript:void(0);" onclick="showTaskExecutionInfoPopupForEdit(this)" data-toggle="tooltip" data-placement="top" title="Edit"><img src="/images/edit.png" style="width:15px; height: 15px;"/></a>&nbsp;
+												<a href="javascript:void(0);" onclick="deleteThisTaskExecutionInfo(this)" data-toggle="tooltip" data-placement="top" title="Delete"><img src="/images/delete.png" style="width:15px; height: 15px;"/></a>&nbsp;
+												</td>
+												</tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                     <!--.card-body---> 
+                                </div>
+
+					              </div>
+					              <div class="tab-pane fade" id="TaskLayoutParametersDashboard" role="tabpanel">
+								                                    <div class="card card-primary " data-name="TaskLayoutParametersContent" data-is-card-header="1">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Task Layout Parameters</h3>
+                                    </div>
+                                     <!--.card-header--> 
+                                    <div class="card-body">
+                                        <div class="col-md-12" style="clear:both;">
+                                            <div style="float:right;">
+                                                <button type="submit" data-element-name="userActionItem" data-privilege-item="CreateEntityTaskLayoutParameters" style="display:none;" class="btn btn-outline-primary    btn-xs  text-sm" onclick="showTaskLayoutParametersPopupForNew(this)" data-is-button='1'>+ New</button>
+                                            </div>
+                                        </div>
+                                        <div style="clear:both;margin-bottom: 10px;">
+                                        </div>
+                                        <table id="example3" class="table table-bordered table-hover table-responsive">
+                                            <thead>
+                                                <tr style="cursor: pointer;"> 
+                                                                                                        <th>Parameter Name</th>
+                                                    <th>Parameter Value Type</th>
+                                                    <th>Parameter Value</th>
+
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody data-name="taskLayoutParametersList">
+												<tr style="cursor: pointer; display: none;" data-name="taskLayoutParametersRow"  >
+																								<td data-name="parameterName">
+												</td>
+												<td data-name="parameterValueType">
+												</td>
+												<td data-name="parameterValue">
+												</td>
+
+												<td>
+												<a href="javascript:void(0);" onclick="showTaskLayoutParametersPopupForEdit(this)" data-toggle="tooltip" data-placement="top" title="Edit"><img src="/images/edit.png" style="width:15px; height: 15px;"/></a>&nbsp;
+												<a href="javascript:void(0);" onclick="deleteThisTaskLayoutParameters(this)" data-toggle="tooltip" data-placement="top" title="Delete"><img src="/images/delete.png" style="width:15px; height: 15px;"/></a>&nbsp;
+												</td>
+												</tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                     <!--.card-body---> 
+                                </div>
+
+					              </div>
+					              <div class="tab-pane fade" id="EmailAttachmentLayoutDashboard" role="tabpanel">
+								                                    <div class="card card-primary " data-name="EmailAttachmentLayoutContent" data-is-card-header="1">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Email Attachment Layout</h3>
+                                    </div>
+                                     <!--.card-header--> 
+                                    <div class="card-body">
+                                        <div class="col-md-12" style="clear:both;">
+                                            <div style="float:right;">
+                                                <button type="submit" data-element-name="userActionItem" data-privilege-item="CreateEntityEmailAttachmentLayout" style="display:none;" class="btn btn-outline-primary    btn-xs  text-sm" onclick="showEmailAttachmentLayoutPopupForNew(this)" data-is-button='1'>+ New</button>
+                                            </div>
+                                        </div>
+                                        <div style="clear:both;margin-bottom: 10px;">
+                                        </div>
+                                        <table id="example3" class="table table-bordered table-hover table-responsive">
+                                            <thead>
+                                                <tr style="cursor: pointer;"> 
+                                                                                                        <th>Email Attachment Layout Name</th>
+                                                    <th>Comments</th>
+
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody data-name="emailAttachmentLayoutList">
+												<tr style="cursor: pointer; display: none;" data-name="emailAttachmentLayoutRow"  >
+																								<td data-name="emailAttachmentLayoutName">
+												</td>
+												<td data-name="comments">
+												</td>
+
+												<td>
+												<a href="javascript:void(0);" onclick="showEmailAttachmentLayoutPopupForEdit(this)" data-toggle="tooltip" data-placement="top" title="Edit"><img src="/images/edit.png" style="width:15px; height: 15px;"/></a>&nbsp;
+												<a href="javascript:void(0);" onclick="deleteThisEmailAttachmentLayout(this)" data-toggle="tooltip" data-placement="top" title="Delete"><img src="/images/delete.png" style="width:15px; height: 15px;"/></a>&nbsp;
+												</td>
+												</tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                     <!--.card-body---> 
+                                </div>
+
+					              </div>
+
+					            </div>
+
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- ./row -->
+                    </div><!-- /.container-fluid -->
+                </section>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer " data-is-main-footer='1'>
+                <div class="float-right d-none d-sm-block">
+                    <b></b>
+                </div>
+                <strong>Copyright &copy; <a href="http://harivaratechsol.com">Harivara Technology Solutions</a>.</strong> All rights
+                reserved.
+            </footer>
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark" style="top: 57px; height: 225px; display: none;">
+                <!-- Control sidebar content goes here -->
+            </aside>  <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+		
+
+    <div data-name="popupsDiv">
+		
+		
+        
+	            <div class="modal" data-name="TaskExecutionInfoPopup" onkeyup="Javascript: if (event.keyCode == 27)
+            closeThisPopupOnEscape(this)" style="display: none; background: rgba(0, 0, 0, 0.7);overflow: auto;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content" style="border-top: 3px solid #007bff;">
+                    <div class="modal-header">
+                        <h4 class="modal-title"> Task Execution Info </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeThisPopup(this)">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+					            <ul class="nav nav-tabs" role="tablist" id="custom-content-below-tab">
+					              <li class="nav-item">
+					                <a class="nav-link active" id="TaskExecutionInfo-tab" data-toggle="pill" href="#TaskExecutionInfoTab" role="tab" aria-selected="true">Task Execution Info</a>
+					              </li>
+									
+					            </ul>
+					            <div class="tab-content" id="custom-content-below-tabContent">
+					              <div class="tab-pane active show" id="TaskExecutionInfoTab" role="tabpanel">
+								                                    <div class="card  card-primary  " style="margin-top:20px;" data-is-card-header="1">
+                                    <div class="card-header">
+                                        <h3 class="card-title" >
+											Task Execution Info                                            
+                                        </h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-md-12" style="clear:both;">
+                                            <div style="float:right;" id="actionButtonsDivForTaskExecutionInfo">
+		                                        
+		                                        
+					                        	<div data-name="taskExecutionInfoCreateFormButtonsDiv" style="display: inline">
+												
+												
+	                                                <button data-element-name="userActionItem" data-privilege-item="CreateEntityTaskExecutionInfo" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs  text-sm" onclick="createTaskExecutionInfo()" data-is-button='1'>Save</button>
+	                                                <button data-element-name="userActionItem" data-privilege-item="CreateEntityTaskExecutionInfo" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs  text-sm" onclick="fetchTaskExecutionInfoTestData()" data-is-button='1'>Test Data</button>
+																								
+					                        	</div>
+					                        	<div data-name="taskExecutionInfoViewFormButtonsDiv" style="display: none">
+												
+												
+	                                                <button data-element-name="userActionItem" data-privilege-item="CreateEntityTaskExecutionInfo" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs    text-sm" onclick="resetFormForTaskExecutionInfo()" data-is-button='1'>New</button>
+	                                                <button data-element-name="userActionItem" data-privilege-item="UpdateEntityTaskExecutionInfo" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs  text-sm" onclick="updateTaskExecutionInfo()" data-is-button='1'>Update</button>
+	                                                <button data-element-name="userActionItem" data-privilege-item="DeleteEntityTaskExecutionInfo" style="display:none;" type="submit" class="btn btn-outline-danger   btn-xs  text-sm" onclick="deleteTaskExecutionInfo()" data-is-button='1'>Delete</button>
+																								
+					                        	</div>
+                                            </div>
+                                        </div>
+                                        <div style="clear:both;">
+                                        </div>
+									<div class="row">
+										
+										
+										
+                                        <div class="col-md-6" data-name="TaskExecutionInfoContent">
+                                            <div class="form-group" style="display: none">
+                                                <label>Id</label>
+                                                <input type="text"  class="form-control" id="idValueForTaskExecutionInfo" readonly="true" />
+                                            </div>
+                                            											
+									        <div class="form-group row"> 
+                                                <label class="col-sm-4 col-form-label" for="TaskExecutionInfo_taskTimeCalculationType" >Task Time Calculation Type*</label>
+												<div class="col-sm-8">
+	                                                <select class="form-control" id="TaskExecutionInfo_taskTimeCalculationType" onchange="selectOptionChangedForTaskExecutionInfo('taskTimeCalculationType')"   >
+	                                                    
+	                                                    
+	                                                    
+	                                                    <option value=""></option>
+	                                                    
+	                                                    <option value="Immediate">Immediate</option>
+	                                                    
+	                                                    <option value="UseRelativeDate">UseRelativeDate</option>
+	                                                    
+	                                                    
+	                                                </select>
+		                                        </div>
+                                            </div>
+											
+									        <div class="form-group row"> 
+                                                <label class="col-sm-4 col-form-label" for="TaskExecutionInfo_firstRunDateCalculationMethod" >First Run Date Calculation Method</label>
+												<div class="col-sm-8">
+	                                                <select class="form-control" id="TaskExecutionInfo_firstRunDateCalculationMethod" onchange="selectOptionChangedForTaskExecutionInfo('firstRunDateCalculationMethod')"   >
+	                                                    
+	                                                    
+	                                                    
+	                                                    <option value=""></option>
+	                                                    
+	                                                    <option value="FORWARD">FORWARD</option>
+	                                                    
+	                                                    <option value="BACKWARD">BACKWARD</option>
+	                                                    
+	                                                    
+	                                                </select>
+		                                        </div>
+                                            </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskExecutionInfo_firstRunDateGapInYears"  >First Run Date Gap In Years</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskExecutionInfo_firstRunDateGapInYears"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskExecutionInfo_firstRunDateGapInMonths"  >First Run Date Gap In Months</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskExecutionInfo_firstRunDateGapInMonths"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskExecutionInfo_firstRunDateGapInDays"  >First Run Date Gap In Days</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskExecutionInfo_firstRunDateGapInDays"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskExecutionInfo_firstRunDateGapInHours"  >First Run Date Gap In Hours</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskExecutionInfo_firstRunDateGapInHours"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskExecutionInfo_firstRunDateGapInMinutes"  >First Run Date Gap In Minutes</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskExecutionInfo_firstRunDateGapInMinutes"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskExecutionInfo_firstRunDateGapInSeconds"  >First Run Date Gap In Seconds</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskExecutionInfo_firstRunDateGapInSeconds"   />
+		                                        </div>
+	                                        </div>
+
+                                        </div>
+									<!--div class="row"-->
+                                    </div>
+                                    </div>
+                                     <!--.card--> 
+                                </div>
+
+					              </div>
+								
+					            </div>
+                    </div>
+                    <div class="modal-footer" style="float: right;">
+                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="closeThisPopup(this)">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+	    
+        
+	            <div class="modal" data-name="TaskLayoutParametersPopup" onkeyup="Javascript: if (event.keyCode == 27)
+            closeThisPopupOnEscape(this)" style="display: none; background: rgba(0, 0, 0, 0.7);overflow: auto;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content" style="border-top: 3px solid #007bff;">
+                    <div class="modal-header">
+                        <h4 class="modal-title"> Task Layout Parameters </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeThisPopup(this)">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+					            <ul class="nav nav-tabs" role="tablist" id="custom-content-below-tab">
+					              <li class="nav-item">
+					                <a class="nav-link active" id="TaskLayoutParameters-tab" data-toggle="pill" href="#TaskLayoutParametersTab" role="tab" aria-selected="true">Task Layout Parameters</a>
+					              </li>
+									
+					            </ul>
+					            <div class="tab-content" id="custom-content-below-tabContent">
+					              <div class="tab-pane active show" id="TaskLayoutParametersTab" role="tabpanel">
+								                                    <div class="card  card-primary  " style="margin-top:20px;" data-is-card-header="1">
+                                    <div class="card-header">
+                                        <h3 class="card-title" >
+											Task Layout Parameters                                            
+                                        </h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-md-12" style="clear:both;">
+                                            <div style="float:right;" id="actionButtonsDivForTaskLayoutParameters">
+		                                        
+		                                        
+					                        	<div data-name="taskLayoutParametersCreateFormButtonsDiv" style="display: inline">
+												
+												
+	                                                <button data-element-name="userActionItem" data-privilege-item="CreateEntityTaskLayoutParameters" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs  text-sm" onclick="createTaskLayoutParameters()" data-is-button='1'>Save</button>
+	                                                <button data-element-name="userActionItem" data-privilege-item="CreateEntityTaskLayoutParameters" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs  text-sm" onclick="fetchTaskLayoutParametersTestData()" data-is-button='1'>Test Data</button>
+																								
+					                        	</div>
+					                        	<div data-name="taskLayoutParametersViewFormButtonsDiv" style="display: none">
+												
+												
+	                                                <button data-element-name="userActionItem" data-privilege-item="CreateEntityTaskLayoutParameters" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs    text-sm" onclick="resetFormForTaskLayoutParameters()" data-is-button='1'>New</button>
+	                                                <button data-element-name="userActionItem" data-privilege-item="UpdateEntityTaskLayoutParameters" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs  text-sm" onclick="updateTaskLayoutParameters()" data-is-button='1'>Update</button>
+	                                                <button data-element-name="userActionItem" data-privilege-item="DeleteEntityTaskLayoutParameters" style="display:none;" type="submit" class="btn btn-outline-danger   btn-xs  text-sm" onclick="deleteTaskLayoutParameters()" data-is-button='1'>Delete</button>
+																								
+					                        	</div>
+                                            </div>
+                                        </div>
+                                        <div style="clear:both;">
+                                        </div>
+									<div class="row">
+										
+										
+										
+                                        <div class="col-md-6" data-name="TaskLayoutParametersContent">
+                                            <div class="form-group" style="display: none">
+                                                <label>Id</label>
+                                                <input type="text"  class="form-control" id="idValueForTaskLayoutParameters" readonly="true" />
+                                            </div>
+                                            											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskLayoutParameters_parameterName"  >Parameter Name*</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskLayoutParameters_parameterName"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+                                                <label class="col-sm-4 col-form-label" for="TaskLayoutParameters_parameterValueType" >Parameter Value Type*</label>
+												<div class="col-sm-8">
+	                                                <select class="form-control" id="TaskLayoutParameters_parameterValueType" onchange="selectOptionChangedForTaskLayoutParameters('parameterValueType')"   >
+	                                                    
+	                                                    
+	                                                    
+	                                                    <option value=""></option>
+	                                                    
+	                                                    <option value="USER_ID">USER_ID</option>
+	                                                    
+	                                                    <option value="ENTITY_ID">ENTITY_ID</option>
+	                                                    
+	                                                    <option value="NOTIFICATION_START_DATE">NOTIFICATION_START_DATE</option>
+	                                                    
+	                                                    <option value="NOTIFICATION_END_DATE">NOTIFICATION_END_DATE</option>
+	                                                    
+	                                                    
+	                                                </select>
+		                                        </div>
+                                            </div>
+											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="TaskLayoutParameters_parameterValue"  >Parameter Value</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="TaskLayoutParameters_parameterValue"   />
+		                                        </div>
+	                                        </div>
+
+                                        </div>
+									<!--div class="row"-->
+                                    </div>
+                                    </div>
+                                     <!--.card--> 
+                                </div>
+
+					              </div>
+								
+					            </div>
+                    </div>
+                    <div class="modal-footer" style="float: right;">
+                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="closeThisPopup(this)">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+	    
+        
+	            <div class="modal" data-name="EmailAttachmentLayoutPopup" onkeyup="Javascript: if (event.keyCode == 27)
+            closeThisPopupOnEscape(this)" style="display: none; background: rgba(0, 0, 0, 0.7);overflow: auto;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content" style="border-top: 3px solid #007bff;">
+                    <div class="modal-header">
+                        <h4 class="modal-title"> Email Attachment Layout </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeThisPopup(this)">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+					            <ul class="nav nav-tabs" role="tablist" id="custom-content-below-tab">
+					              <li class="nav-item">
+					                <a class="nav-link active" id="EmailAttachmentLayout-tab" data-toggle="pill" href="#EmailAttachmentLayoutTab" role="tab" aria-selected="true">Email Attachment Layout</a>
+					              </li>
+									
+					            </ul>
+					            <div class="tab-content" id="custom-content-below-tabContent">
+					              <div class="tab-pane active show" id="EmailAttachmentLayoutTab" role="tabpanel">
+								                                    <div class="card  card-primary  " style="margin-top:20px;" data-is-card-header="1">
+                                    <div class="card-header">
+                                        <h3 class="card-title" >
+											Email Attachment Layout                                            
+                                        </h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-md-12" style="clear:both;">
+                                            <div style="float:right;" id="actionButtonsDivForEmailAttachmentLayout">
+		                                        
+		                                        
+					                        	<div data-name="emailAttachmentLayoutCreateFormButtonsDiv" style="display: inline">
+												
+												
+	                                                <button data-element-name="userActionItem" data-privilege-item="CreateEntityEmailAttachmentLayout" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs  text-sm" onclick="createEmailAttachmentLayout()" data-is-button='1'>Save</button>
+	                                                <button data-element-name="userActionItem" data-privilege-item="CreateEntityEmailAttachmentLayout" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs  text-sm" onclick="fetchEmailAttachmentLayoutTestData()" data-is-button='1'>Test Data</button>
+																								
+					                        	</div>
+					                        	<div data-name="emailAttachmentLayoutViewFormButtonsDiv" style="display: none">
+												
+												
+	                                                <button data-element-name="userActionItem" data-privilege-item="CreateEntityEmailAttachmentLayout" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs    text-sm" onclick="resetFormForEmailAttachmentLayout()" data-is-button='1'>New</button>
+	                                                <button data-element-name="userActionItem" data-privilege-item="UpdateEntityEmailAttachmentLayout" style="display:none;" type="submit" class="btn btn-outline-primary   btn-xs  text-sm" onclick="updateEmailAttachmentLayout()" data-is-button='1'>Update</button>
+	                                                <button data-element-name="userActionItem" data-privilege-item="DeleteEntityEmailAttachmentLayout" style="display:none;" type="submit" class="btn btn-outline-danger   btn-xs  text-sm" onclick="deleteEmailAttachmentLayout()" data-is-button='1'>Delete</button>
+																								
+					                        	</div>
+                                            </div>
+                                        </div>
+                                        <div style="clear:both;">
+                                        </div>
+									<div class="row">
+										
+										
+										
+                                        <div class="col-md-6" data-name="EmailAttachmentLayoutContent">
+                                            <div class="form-group" style="display: none">
+                                                <label>Id</label>
+                                                <input type="text"  class="form-control" id="idValueForEmailAttachmentLayout" readonly="true" />
+                                            </div>
+                                            											
+									        <div class="form-group row"> 
+	                                            <label class="col-sm-4 col-form-label" for="EmailAttachmentLayout_emailAttachmentLayoutName"  >Email Attachment Layout Name</label>
+												<div class="col-sm-8">
+		                                            <input type="text" class="form-control" id="EmailAttachmentLayout_emailAttachmentLayoutName"   />
+		                                        </div>
+	                                        </div>
+											
+									        <div class="form-group row"> 
+                                                <label class="col-sm-4 col-form-label" for="EmailAttachmentLayout_comments"  >Comments</label>
+												<div class="col-sm-8">
+	                                                <textarea  class="form-control" id="EmailAttachmentLayout_comments"  rows="3"   ></textarea>
+		                                        </div>
+                                            </div>
+
+                                        </div>
+									<!--div class="row"-->
+                                    </div>
+                                    </div>
+                                     <!--.card--> 
+                                </div>
+
+					              </div>
+								
+					            </div>
+                    </div>
+                    <div class="modal-footer" style="float: right;">
+                        <button type="button" class="btn btn-outline-primary btn-sm" onclick="closeThisPopup(this)">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+	    
+        
+		
+		
+		
+		
+		<div class="modal" data-name="fileUploadPopup"
+			onkeyup="Javascript: if (event.keyCode == 27)
+            closeThisPopupOnEscape(this)"
+			style="display: none; background: rgba(0, 0, 0, 0.7); overflow: auto;">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content" style="border-top: 3px solid #007bff;">
+					<div class="modal-header">
+						<h4 class="modal-title">Upload TaskInfo</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close" onclick="closeThisPopup(this)">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="card  card-primary  " style="margin-top: 20px;"
+							data-is-card-header="1">
+							<div class="card-header">
+								<h3 class="card-title">Upload TaskInfo</h3>
+							</div>
+							<div class="card-body">
+                                            <div data-name="fileUploadDivElement" data-callback-function-name="setUploadDataInputFiles">
+										        <div class="form-group row"> 
+	                                                <label class="col-sm-4 col-form-label" >Input Files Zip</label>
+													<div class="col-sm-8">
+		                                                <div class="input-group">
+		                                                    <div class="custom-file" data-name="formDiv">
+		                                                        <input type="file" class="custom-file-input" data-name="upoadDataInputFilesZip" name="uploadInputFile" />
+		                                                        <label class="custom-file-label" for="exampleInputFile">Select Input Files Zip</label>
+																<span class="invalid-feedback">Select Custom Files Zip</span>
+		                                                    </div>
+		                                                    <div class="input-group-append">
+		                                                        <span class="input-group-text" id="" onclick="uploadFile(event, this)">Upload</span>
+		                                                    </div>
+															<span style="width: 100%; font-size: 80%; color: darkgray; text-align: left">* Click upload button after selecting input files zip</span>
+		                                                </div>
+			                                            <div class="input-group" data-name="fileUploadSuccessMessageDiv" style="display: none;">
+															<span style="width: 100%; font-size: 85%; color: cornflowerblue; text-align: left">Input Files Zip Uploaded Successfully</span>
+										                </div>
+			                                        </div>
+	                                            </div>
+							                </div>
+								<div class="col-xs-12" data-name="fileUploadDivElement" data-object-type="TaskInfo" data-callback-function-name="uploadTaskInfoData" >
+					                <div class="form-group">
+					                    <label  class="col-sm-4 control-label" >File Attachments</label>
+					                    <div class="col-sm-8 form-control-static" data-name="formDiv">
+					                        <input type="file" name="uploadInputFile" />
+					                    </div>
+					                </div>
+					                <div class="form-group" data-name="uploadedFilesDiv" style="display: none;">
+					                    <label  class="col-sm-4 control-label" >&nbsp;</label>
+					                    <div class="col-sm-8 form-control-static" data-name="fileUploadMessageElement" data-upload-one-file=0>
+					                         file uploads list
+					                    </div>
+					                </div>
+		                            <div class="form-group form-check">
+		                                <input type="checkbox" class="form-check-input" data-name="areSourceDestinationSame" />
+		                                <label class="form-check-label" >Same Source Destination</label>
+		                            </div>
+					                <div class="form-group" data-name="uploadButtonDiv">
+					                    <div class="col-sm-offset-4 col-sm-8">
+					                        <button type="button" class="btn btn-sm  btn-default btn-primary" onclick="uploadFile(event, this)">Upload File</button>
+		                                     </br><a href="" class="card-link" data-name="uploadResultsLink" style="display: none" target="_blank">Show Upload Results</a>
+					                    </div>
+					                </div>
+								</div>
+								<div style="clear: both;"></div>
+							</div>
+							<!--.card-->
+						</div>
+					</div>
+					<div class="modal-footer" style="float: right;">
+						<button type="button" class="btn btn-outline-primary btn-sm"
+							onclick="closeThisPopup(this)">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal" data-name="allEntitiesUploadPopup"
+			onkeyup="Javascript: if (event.keyCode == 27)
+            closeThisPopupOnEscape(this)"
+			style="display: none; background: rgba(0, 0, 0, 0.7); overflow: auto;">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content" style="border-top: 3px solid #007bff;">
+					<div class="modal-header">
+						<h4 class="modal-title">Upload Data</h4>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close" onclick="closeThisPopup(this)">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="card  card-primary  " style="margin-top: 20px;"
+							data-is-card-header="1">
+							<div class="card-header">
+								<h3 class="card-title">Upload Data</h3>
+							</div>
+							<div class="card-body">
+                                            <div data-name="fileUploadDivElement" data-callback-function-name="setUploadDataInputFiles">
+										        <div class="form-group row"> 
+	                                                <label class="col-sm-4 col-form-label" >Input Files Zip</label>
+													<div class="col-sm-8">
+		                                                <div class="input-group">
+		                                                    <div class="custom-file" data-name="formDiv">
+		                                                        <input type="file" class="custom-file-input" data-name="upoadDataInputFilesZip" name="uploadInputFile" />
+		                                                        <label class="custom-file-label" for="exampleInputFile">Select Input Files Zip</label>
+																<span class="invalid-feedback">Select Custom Files Zip</span>
+		                                                    </div>
+		                                                    <div class="input-group-append">
+		                                                        <span class="input-group-text" id="" onclick="uploadFile(event, this)">Upload</span>
+		                                                    </div>
+															<span style="width: 100%; font-size: 80%; color: darkgray; text-align: left">* Click upload button after selecting input files zip</span>
+		                                                </div>
+			                                            <div class="input-group" data-name="fileUploadSuccessMessageDiv" style="display: none;">
+															<span style="width: 100%; font-size: 85%; color: cornflowerblue; text-align: left">Input Files Zip Uploaded Successfully</span>
+										                </div>
+			                                        </div>
+	                                            </div>
+							                </div>
+								<div class="col-xs-12" data-name="fileUploadDivElement" data-object-type="TaskInfo" data-callback-function-name="uploadAllEntities" >
+					                <div class="form-group">
+					                    <label  class="col-sm-4 control-label" >File Attachments</label>
+					                    <div class="col-sm-8 form-control-static" data-name="formDiv">
+					                        <input type="file" name="uploadInputFile" />
+					                    </div>
+					                </div>
+					                <div class="form-group" data-name="uploadedFilesDiv" style="display: none;">
+					                    <label  class="col-sm-4 control-label" >&nbsp;</label>
+					                    <div class="col-sm-8 form-control-static" data-name="fileUploadMessageElement" data-upload-one-file=0>
+					                         file uploads list
+					                    </div>
+					                </div>
+		                            <div class="form-group form-check">
+		                                <input type="checkbox" class="form-check-input" data-name="areSourceDestinationSame" />
+		                                <label class="form-check-label" >Same Source Destination</label>
+		                            </div>
+					                <div class="form-group" data-name="uploadButtonDiv">
+					                    <div class="col-sm-offset-4 col-sm-8">
+					                        <button type="button" class="btn btn-sm  btn-default btn-primary" onclick="uploadFile(event, this)">Upload File</button>
+		                                     </br><a href="" class="card-link" data-name="uploadResultsLink" style="display: none" target="_blank">Show Upload Results</a>
+					                    </div>
+					                </div>
+								</div>
+								<div style="clear: both;"></div>
+							</div>
+							<!--.card-->
+						</div>
+					</div>
+					<div class="modal-footer" style="float: right;">
+						<button type="button" class="btn btn-outline-primary btn-sm"
+							onclick="closeThisPopup(this)">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+
+    </body>
+</html>
+
+
+
+
