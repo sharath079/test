@@ -16,8 +16,8 @@
 	<description>patientapp project for Spring Boot</description>
 	<repositories>
 		<repository>
-			<id>my-internal-site</id>
-			<url>file:///home/chandu/Documents/Maven/MavenLocalRepository</url>
+			<id>deploymentRepo</id>
+			<url>file:///User/sharath/.m2/repository</url>
 		</repository>
 	</repositories>
 	<properties>
